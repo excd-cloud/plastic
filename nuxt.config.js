@@ -18,6 +18,20 @@ module.exports = {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
+  /*
+   ** Fonts
+   */
+  link: [
+    {
+      rel: "stylesheet",
+      href:
+        "https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;700&display=swap"
+    }
+  ],
+  /*
+   ** CSS
+   */
+  css: ["@/css/main.css"],
   // ...
   env: {
     CTF_SPACE_ID: config.CTF_SPACE_ID,

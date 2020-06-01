@@ -1,0 +1,32 @@
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+html {
+  font-family: "Source Code Pro", monospace;
+}
+
+p {
+  font-size: 12px;
+  letter-spacing: 0.08rem;
+}
+
+h1,
+h4,
+h3 {
+  font-weight: 400;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+  font-size: 14px;
+}
