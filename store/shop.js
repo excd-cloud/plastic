@@ -11,7 +11,7 @@ export const state = () => ({
     },
     {
       name: "職人醤油松屋銀座店",
-      sells: "醤油",
+      product: "醤油",
       address: "東京都中央区銀座3-6-1 松屋銀座店 地下2階",
       description:
         "瓶を持って来ると、しょうゆの価格だけで購入することができる。",
@@ -21,7 +21,7 @@ export const state = () => ({
     },
     {
       name: "エコストア　アトレ恵比寿店",
-      sells: "洗剤・石鹸",
+      product: "洗剤・石鹸",
       address: "東京都渋谷区恵比寿南1-6 アトレ恵比寿西館 2階",
       description: "洗剤や石鹸などを量り売りしている。",
       prefecture: "東京都",

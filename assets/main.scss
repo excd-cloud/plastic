@@ -1,3 +1,12 @@
+$primaryfontsize: 12px;
+
+@mixin primarybtn {
+  background-color: white;
+  border: 1px solid black;
+  width: 100%;
+  padding: 4px;
+}
+
 a {
   text-decoration: none;
   color: #000;
@@ -7,11 +16,19 @@ html {
   font-family: "Source Code Pro", monospace;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 p {
-  font-size: 12px;
+  font-size: $primaryfontsize;
   letter-spacing: 0.08rem;
 }
 
+h1 {
+  font-size: 3rem;
+}
 h1,
 h4,
 h3 {
@@ -29,4 +46,16 @@ h3 {
 li {
   list-style-type: none;
   font-size: 14px;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }
