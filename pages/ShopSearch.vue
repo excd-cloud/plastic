@@ -3,8 +3,8 @@
     <h3>Search for Shops!</h3>
     <ul>
       <li v-for="shop in shops" :key="shop.section">
-        <span>{{ shop.name }}</span>
-        <span>{{ shop.description }}</span>
+        <p>{{ shop.name }}</p>
+        <p>{{ shop.description }}</p>
       </li>
     </ul>
   </div>
@@ -14,7 +14,7 @@
 export default {
   computed: {
     shops() {
-      return this.$store.state.bulkshops;
+      return this.$store.state.shop.shops;
     }
   }
 };
