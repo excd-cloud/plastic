@@ -1,0 +1,94 @@
+/**
+* a. Mixins
+* b. Set Variables
+* c. Keyframes
+* 01. General + Global
+*/
+
+/* a. Mixins */
+@mixin primarybtn {
+  background-color: white;
+  border: 1px solid black;
+  width: 100%;
+  padding: 4px;
+}
+
+/* b. Set variables */
+$webfontsize: 11px;
+$primarycolor: #000;
+$letterspacing: 0.08rem;
+
+/* 01. General + Global */
+a {
+  text-decoration: none;
+  color: #000;
+  font-size: $webfontsize;
+  letter-spacing: $letterspacing;
+}
+
+button:focus {
+  outline: 0;
+}
+
+html {
+  font-family: "Source Code Pro", monospace;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+  font-size: 14px;
+}
+
+/* 02. Mobile Global */
+p {
+  font-size: $webfontsize;
+  letter-spacing: 0.08rem;
+  color: #333333;
+}
+
+h1 {
+  font-size: 3rem;
+}
+h1,
+h4,
+h3 {
+  font-weight: 400;
+}
+
+h3,
+h5 {
+  letter-spacing: 0.08rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.center {
+  text-align: center;
+}

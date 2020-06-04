@@ -2,7 +2,11 @@
   <div class="topsearchsection">
     <div class="topsearchsectiontext">
       <p class="paddingbtm">まずは迷わず…</p>
-      <h3>容器持ち込みOKの店を探してみよう！</h3>
+      <h3>
+        容器を持ち込める店を
+        <br />探して
+        <br />みよう！
+      </h3>
       <button>
         <nuxt-link to="/shopsearch">検索する</nuxt-link>
       </button>
@@ -16,16 +20,20 @@
 
 <style lang="scss" scoped>
 .topsearchsection {
-  margin: 2rem 0rem;
+  margin-top: 2rem;
   border-top: 1px solid black;
 }
 
 .topsearchsection {
   display: flex;
+  h3 {
+    text-align: center;
+  }
 }
 
 .topsearchsectiontext,
 figure {
+  padding: 3rem 0rem;
   width: 50%;
 }
 .topsearchsectiontext {

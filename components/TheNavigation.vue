@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <div class="menu" v-show="showMenu">
     <ul>
       <li>
         <nuxt-link to="/shopsearch">Search Bulkshop</nuxt-link>
@@ -17,25 +17,5 @@
         <nuxt-link to="/contact">Contact</nuxt-link>
       </li>
     </ul>
-    <p class="copyright">&copy; Sayonara Plastic 2020</p>
-  </footer>
+  </div>
 </template>
-
-<style lang="scss" scoped>
-footer {
-  text-align: center;
-  padding: 1rem 0rem;
-  ul {
-    border-top: 1px solid #000;
-    padding: 2rem 0rem;
-  }
-  li {
-    padding: 0.3rem 0rem;
-    font-size: 13px;
-  }
-  .copyright {
-    padding-top: 1rem;
-    border-top: 1px solid #000;
-  }
-}
-</style>

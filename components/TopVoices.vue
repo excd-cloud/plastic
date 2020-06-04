@@ -1,11 +1,10 @@
 <template>
   <div class="voices">
-    <h3>
-      Voices
-    </h3>
-    <h5>
-      リアルな声
-    </h5>
+    <div class="tagline">
+      <h3>Voices</h3>
+      <p>リアルな声</p>
+    </div>
+
     <div class="voicestagline">
       <p>
         プラごみ削減に熱心な人々の声を集めています。
@@ -18,3 +17,28 @@
     </button>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.voices {
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  .tagline {
+    padding-bottom: 2rem;
+  }
+  .voicestagline p {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+  }
+  button {
+    background-color: #000;
+    width: 60%;
+    padding: 10px;
+    border: none;
+    a {
+      color: #fff;
+    }
+  }
+}
+</style>

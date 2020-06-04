@@ -31,7 +31,7 @@ module.exports = {
   /*
    ** CSS
    */
-  css: ["@/css/main.css"],
+  css: ["@/css/main.css", "@/css/main.scss"],
   // ...
   env: {
     CTF_SPACE_ID: config.CTF_SPACE_ID,
