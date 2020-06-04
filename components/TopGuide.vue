@@ -9,7 +9,9 @@
       <img :src="require(`@/assets/img/${image.file}`)" :alt="image.name" />
       <div class="cover">
         <div class="textbox">
-          <p>{{image.description}}</p>
+          <nuxt-link :to="{name:'guide-id', params:{id:image.id}}">
+            <p>{{image.description}}</p>
+          </nuxt-link>
         </div>
       </div>
     </figure>
