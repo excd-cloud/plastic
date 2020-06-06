@@ -39,3 +39,9 @@ export const state = () => ({
     }
   ]
 });
+
+export const getters = {
+  getImage: state => id => {
+    return state.image.images.find(image => images.id == id);
+  }
+};

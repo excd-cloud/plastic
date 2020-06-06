@@ -9,7 +9,7 @@
       <img :src="require(`@/assets/img/${image.file}`)" :alt="image.name" />
       <div class="cover">
         <div class="textbox">
-          <nuxt-link :to="{name:'guide-id', params:{id:image.id}}">
+          <nuxt-link :to="{name:'guide-id', params:{id:image.id}}" @click="clickImage(image)">
             <p>{{image.description}}</p>
           </nuxt-link>
         </div>
@@ -23,6 +23,11 @@ export default {
   computed: {
     images() {
       return this.$store.state.image.images;
+    }
+  },
+  methods: {
+    clickImage(image) {
+      this.$store.state.store.updateImage(image);
     }
   }
 };

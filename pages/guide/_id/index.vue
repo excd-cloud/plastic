@@ -1,23 +1,22 @@
 <template>
   <div class="guide-id">
     hello
-    <figure>
-      <img :src="require(`@/assets/img/${image.file}`)" />
-    </figure>
+    <img v-if="image" :src="require(`@/assets/img/${image.file}`)" />
   </div>
 </template>
 
 <script>
 export default {
-  props: {
-    images: {
-      type: Array
-    }
+  data() {
+    return {
+      image: null
+    };
   },
-  computed: {
-    image() {
-      return images.find(image => image.id === this.$route.params.id);
-    }
+  mounted() {
+    const id = this.$route.params.id;
+    const image = this.$store.getters["image/getImage"](id);
+    console.log(image);
+    this.image = image;
   }
 };
 </script>
