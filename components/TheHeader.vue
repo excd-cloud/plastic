@@ -3,7 +3,7 @@
     <h4>
       <nuxt-link to="/">Sayonara Plastic</nuxt-link>
     </h4>
-    <div class="burger-icon">
+    <div class="burger-icon" @click="showNav = !showNav">
       <div></div>
     </div>
   </header>
@@ -12,9 +12,10 @@
 <script>
 export default {
   data() {
-    return {};
-  },
-  methods: {}
+    return {
+      showNav: false
+    };
+  }
 };
 </script>
 
@@ -60,5 +61,9 @@ header {
 
 .burger-icon:hover div {
   transform: scale(0);
+}
+
+.open {
+  transform: translateX(300px);
 }
 </style>

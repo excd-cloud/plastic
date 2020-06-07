@@ -29,7 +29,7 @@
           </div>
         </div>
         <!-- search by item -->
-        <!-- <div class="selectBoxArea">
+        <div class="selectBoxArea">
           <div class="selectBox" @click="toggle(target)">
             <div class="select">
               <p>買いたいものを検索する</p>
@@ -43,9 +43,9 @@
               </label>
             </div>
           </div>
-        </div> -->
+        </div>
         <!-- search by bulk or package free -->
-        <!-- <div class="selectBoxArea">
+        <div class="selectBoxArea">
           <div class="selectBox" @click="toggle(target)">
             <div class="select">
               <p>量り売りOK／持ち込み容器OK</p>
@@ -63,7 +63,7 @@
               </label>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
       <div class="searchOptionBtn">
         <button>クリアする</button>
