@@ -18,4 +18,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#__layout {
+  border: 1px solid #000;
+}
+</style>

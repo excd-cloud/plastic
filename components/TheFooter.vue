@@ -24,9 +24,8 @@
 <style lang="scss" scoped>
 footer {
   text-align: center;
-  padding: 1rem 0rem;
+  padding-bottom: 1rem;
   ul {
-    border-top: 1px solid #000;
     padding: 2rem 0rem;
   }
   li {

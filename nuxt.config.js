@@ -19,6 +19,18 @@ module.exports = {
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
   /*
+   ** Modules
+   */
+  modules: ["nuxt-fontawesome"],
+  fontawesome: {
+    imports: [
+      {
+        set: "@fortawesome/free-solid-svg-icons",
+        icons: ["fas"]
+      }
+    ]
+  },
+  /*
    ** Fonts
    */
   link: [

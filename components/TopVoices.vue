@@ -23,6 +23,7 @@
   text-align: center;
   padding-top: 3rem;
   padding-bottom: 3rem;
+  border-bottom: 1px solid #000;
   .tagline {
     padding-bottom: 2rem;
   }
