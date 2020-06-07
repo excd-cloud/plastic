@@ -16,7 +16,7 @@ export const state = () => ({
       description:
         "瓶を持って来ると、しょうゆの価格だけで購入することができる。",
       prefecture: "東京都",
-      location: "銀座・東京",
+      location: "銀座",
       category: "量り売りOK"
     },
     {
@@ -25,8 +25,46 @@ export const state = () => ({
       address: "東京都渋谷区恵比寿南1-6 アトレ恵比寿西館 2階",
       description: "洗剤や石鹸などを量り売りしている。",
       prefecture: "東京都",
-      location: "渋谷・恵比寿",
+      location: "恵比寿・代官山・中目黒",
       category: "量り売りOK"
+    }
+  ],
+  areas: [
+    {
+      name: "銀座",
+      id: 1
+    },
+    {
+      name: "恵比寿・代官山・中目黒",
+      id: 2
+    },
+    {
+      name: "自由が丘・二子玉川",
+      id: 3
+    }
+  ],
+  items: [
+    {
+      name: "オリーブオイル",
+      id: 1
+    },
+    {
+      name: "醤油",
+      id: 2
+    },
+    {
+      name: "洗剤",
+      id: 3
+    }
+  ],
+  options: [
+    {
+      name: "量り売りOK",
+      id: 1
+    },
+    {
+      name: "保存容器OK",
+      id: 2
     }
   ]
 });
