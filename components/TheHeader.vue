@@ -1,36 +1,55 @@
 <template>
   <header class="header">
-    <h4>
-      <nuxt-link to="/">Sayonara Plastic</nuxt-link>
-    </h4>
-    <div class="burger-icon" @click="showNav = !showNav">
-      <div></div>
+    <div class="headerflex">
+      <h4>
+        <nuxt-link to="/">Sayonara Plastic</nuxt-link>
+      </h4>
+      <div class="burger-icon" @click="toggleNav">
+        <div></div>
+      </div>
     </div>
+    <TheNavigation v-show="seeNav" />
   </header>
 </template>
 
 <script>
+import TheNavigation from "./TheNavigation";
 export default {
+  components: {
+    TheNavigation
+  },
   data() {
     return {
-      showNav: false
+      seeNav: false
     };
+  },
+  methods: {
+    toggleNav() {
+      this.seeNav = !this.seeNav;
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 header {
-  display: flex;
   position: fixed;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
   height: auto;
-  padding-top: 2%;
+  padding: 2% 0%;
   z-index: 10;
+  background-color: white;
+  top: 0;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
   h4 {
     margin-left: 2%;
+  }
+  .headerflex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
@@ -51,17 +70,17 @@ header {
   transition: all 0.2s ease-in-out;
 }
 
-.burger-icon:hover:before {
-  transform: translateY(10px) rotate(133deg);
-}
+// .burger-icon:hover:before {
+//   transform: translateY(10px) rotate(135deg);
+// }
 
-.burger-icon:hover:after {
-  transform: translateY(-10px) rotate(-133deg);
-}
+// .burger-icon:hover:after {
+//   transform: translateY(-7px) rotate(-135deg);
+// }
 
-.burger-icon:hover div {
-  transform: scale(0);
-}
+// .burger-icon div:hover {
+//   transform: scale(0);
+// }
 
 .open {
   transform: translateX(300px);

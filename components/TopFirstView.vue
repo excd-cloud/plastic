@@ -34,7 +34,7 @@ $lineheight: 25px;
   padding-bottom: 2rem;
 }
 .firstviewtophalf {
-  padding-top: 3rem;
+  padding-top: 5rem;
 }
 
 h1 {

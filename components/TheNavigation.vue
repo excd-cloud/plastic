@@ -34,15 +34,28 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
 .menu {
+  // animation-name: appear;
+  // animation-fill-mode: forwards;
+  // animation-iteration-count: 1;
+  // transition: 1s;
   position: fixed;
   background-color: #fff;
   width: 100%;
-  height: 100%;
-  z-index: 10;
-  margin-top: 15%;
+  height: 95%;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #000;
   ul {
-    border-top: 1px solid #000;
     padding: 5rem 2rem;
     li {
       padding-bottom: 2rem;
