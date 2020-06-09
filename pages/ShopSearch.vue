@@ -4,21 +4,21 @@
       <h2>Search for Shops!</h2>
       <p>量り売りOK/保存容器OKの店舗を紹介します。</p>
     </div>
-
-    <div class="searchFilterbtn">
+    <!-- filter search button -->
+    <div class="searchFilterbtn" @click="filterSearch">
       <p>
         絞って検索する
         <font-awesome-icon icon="angle-down" class="icon" />
       </p>
     </div>
 
-    <form class="filterMenu">
+    <form class="filterMenu" v-show="seeFilter">
       <div class="filterMenuInner">
         <h3>Search for Shops!</h3>
         <!-- search by area -->
         <!-- dropdown header -->
         <div class="selectBoxArea">
-          <div class="selectBox" @click="toggle">
+          <div class="selectBox" @click="toggle(target)">
             <div class="select">
               <p>エリアから検索する</p>
               <font-awesome-icon icon="angle-down" class="icon" />
@@ -34,16 +34,17 @@
             </div>
           </div>
         </div>
+
         <!-- search by item -->
         <!-- dropdown header -->
         <div class="selectBoxArea">
-          <div class="selectBox" @click="toggle">
+          <div class="selectBox" @click="toggle(target)">
             <div class="select">
               <p>買いたいものを検索する</p>
               <font-awesome-icon icon="angle-down" class="icon" />
             </div>
           </div>
-          <!-- checkbox section -->
+          <!-- checkbox section-->
           <div class="checkboxArea" v-show="showOption">
             <div id="checkboxes" v-for="item in items" :key="item.section">
               <label for="select" id="one">
@@ -53,16 +54,16 @@
             </div>
           </div>
         </div>
-        <!-- search by bulk or package free -->
+        <!-- search by bulk or package free-->
         <!-- dropdown header -->
         <div class="selectBoxArea">
-          <div class="selectBox" @click="toggle">
+          <div class="selectBox" @click="toggle(target)">
             <div class="select">
               <p>量り売りOK／持ち込み容器OK</p>
               <font-awesome-icon icon="angle-down" class="icon" />
             </div>
           </div>
-          <!-- checkbox section -->
+          <!-- checkbox section-->
           <div class="checkboxArea" v-show="showOption">
             <div id="checkboxes" v-for="option in options" :key="option.section">
               <label for="select" id="one">
@@ -72,10 +73,11 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="searchOptionBtn">
-        <button>クリアする</button>
-        <button>検索する</button>
+
+        <div class="searchOptionBtn">
+          <button>クリアする</button>
+          <button>検索する</button>
+        </div>
       </div>
     </form>
 
@@ -96,8 +98,20 @@ export default {
   data() {
     return {
       details: false,
-      showOption: false
+      showOption: false,
+      seeFilter: false
     };
+  },
+  methods: {
+    toggleDetails() {
+      this.details = true;
+    },
+    toggle(target) {
+      this.showOption = !this.showOption;
+    },
+    filterSearch() {
+      this.seeFilter = true;
+    }
   },
   computed: {
     shops() {
@@ -112,14 +126,6 @@ export default {
     options() {
       return this.$store.state.shop.options;
     }
-  },
-  methods: {
-    toggleDetails() {
-      this.details = true;
-    },
-    toggle() {
-      showOption = !showOption;
-    }
   }
 };
 </script>
@@ -131,7 +137,7 @@ export default {
 }
 
 .shopsearch {
-  padding-bottom: 5rem;
+  padding: 5rem 0rem;
 }
 
 .searchFilterbtn {
