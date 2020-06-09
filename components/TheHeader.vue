@@ -8,7 +8,7 @@
         <div></div>
       </div>
     </div>
-    <TheNavigation v-show="seeNav" />
+    <!-- <TheNavigation v-show="seeNav" /> -->
   </header>
 </template>
 
@@ -18,14 +18,14 @@ export default {
   components: {
     TheNavigation
   },
-  data() {
-    return {
-      seeNav: false
-    };
-  },
+  // data() {
+  //   return {
+  //     seeNav: false
+  //   };
+  // },
   methods: {
     toggleNav() {
-      this.seeNav = !this.seeNav;
+      this.$emit("toggle-nav");
     }
   }
 };
