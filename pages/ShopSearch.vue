@@ -18,7 +18,7 @@
         <!-- search by area -->
         <!-- dropdown header -->
         <div class="selectBoxArea">
-          <div class="selectBox" @click="toggle(target)">
+          <div class="selectBox" @click="toggle">
             <div class="select">
               <p>エリアから検索する</p>
               <font-awesome-icon icon="angle-down" class="icon" />
@@ -38,7 +38,7 @@
         <!-- search by item -->
         <!-- dropdown header -->
         <div class="selectBoxArea">
-          <div class="selectBox" @click="toggle(target)">
+          <div class="selectBox" @click="toggle">
             <div class="select">
               <p>買いたいものを検索する</p>
               <font-awesome-icon icon="angle-down" class="icon" />
@@ -57,7 +57,7 @@
         <!-- search by bulk or package free-->
         <!-- dropdown header -->
         <div class="selectBoxArea">
-          <div class="selectBox" @click="toggle(target)">
+          <div class="selectBox" @click="toggle">
             <div class="select">
               <p>量り売りOK／持ち込み容器OK</p>
               <font-awesome-icon icon="angle-down" class="icon" />
@@ -75,7 +75,7 @@
         </div>
 
         <div class="searchOptionBtn">
-          <button>クリアする</button>
+          <button @click="close">クリアする</button>
           <button>検索する</button>
         </div>
       </div>
@@ -106,11 +106,14 @@ export default {
     toggleDetails() {
       this.details = true;
     },
-    toggle(target) {
+    toggle() {
       this.showOption = !this.showOption;
     },
     filterSearch() {
       this.seeFilter = true;
+    },
+    close() {
+      this.showOption = false;
     }
   },
   computed: {
