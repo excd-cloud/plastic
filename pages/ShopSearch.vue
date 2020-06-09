@@ -6,60 +6,68 @@
     </div>
 
     <div class="searchFilterbtn">
-      <p>絞って検索する<font-awesome-icon icon="angle-down" class="icon" /></p>
+      <p>
+        絞って検索する
+        <font-awesome-icon icon="angle-down" class="icon" />
+      </p>
     </div>
 
     <form class="filterMenu">
       <div class="filterMenuInner">
         <h3>Search for Shops!</h3>
         <!-- search by area -->
+        <!-- dropdown header -->
         <div class="selectBoxArea">
-          <div class="selectBox" @click="toggle(target)">
+          <div class="selectBox" @click="toggle">
             <div class="select">
               <p>エリアから検索する</p>
               <font-awesome-icon icon="angle-down" class="icon" />
             </div>
           </div>
-          <div class="checkboxArea" v-if="showOption">
+          <!-- checkbox section -->
+          <div class="checkboxArea" v-show="showOption">
             <div id="checkboxes" v-for="area in areas" :key="area.section">
               <label for="select" id="one">
-                <input type="checkbox" :id="area.id" />{{ area.name }}
+                <input type="checkbox" :id="area.id" />
+                {{ area.name }}
               </label>
             </div>
           </div>
         </div>
         <!-- search by item -->
+        <!-- dropdown header -->
         <div class="selectBoxArea">
-          <div class="selectBox" @click="toggle(target)">
+          <div class="selectBox" @click="toggle">
             <div class="select">
               <p>買いたいものを検索する</p>
               <font-awesome-icon icon="angle-down" class="icon" />
             </div>
           </div>
-          <div class="checkboxArea" v-if="showOption">
+          <!-- checkbox section -->
+          <div class="checkboxArea" v-show="showOption">
             <div id="checkboxes" v-for="item in items" :key="item.section">
               <label for="select" id="one">
-                <input type="checkbox" :id="item.id" />{{ item.name }}
+                <input type="checkbox" :id="item.id" />
+                {{ item.name }}
               </label>
             </div>
           </div>
         </div>
         <!-- search by bulk or package free -->
+        <!-- dropdown header -->
         <div class="selectBoxArea">
-          <div class="selectBox" @click="toggle(target)">
+          <div class="selectBox" @click="toggle">
             <div class="select">
               <p>量り売りOK／持ち込み容器OK</p>
               <font-awesome-icon icon="angle-down" class="icon" />
             </div>
           </div>
-          <div class="checkboxArea" v-if="showOption">
-            <div
-              id="checkboxes"
-              v-for="option in options"
-              :key="option.section"
-            >
+          <!-- checkbox section -->
+          <div class="checkboxArea" v-show="showOption">
+            <div id="checkboxes" v-for="option in options" :key="option.section">
               <label for="select" id="one">
-                <input type="checkbox" :id="option.id" />{{ option.name }}
+                <input type="checkbox" :id="option.id" />
+                {{ option.name }}
               </label>
             </div>
           </div>
@@ -71,12 +79,7 @@
       </div>
     </form>
 
-    <div
-      class="shopListingTable"
-      v-for="shop in shops"
-      :key="shop.table"
-      @click="toggleDetails"
-    >
+    <div class="shopListingTable" v-for="shop in shops" :key="shop.table" @click="toggleDetails">
       <p>{{ shop.name }}</p>
       <p>{{ shop.product }}</p>
       <div class="shopDetails" v-show="details">
@@ -93,8 +96,7 @@ export default {
   data() {
     return {
       details: false,
-      showOption: false,
-      target: ""
+      showOption: false
     };
   },
   computed: {
@@ -115,9 +117,7 @@ export default {
     toggleDetails() {
       this.details = true;
     },
-    toggle(target) {
-      this.target == target;
-      console.log(target);
+    toggle() {
       showOption = !showOption;
     }
   }
