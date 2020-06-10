@@ -1,0 +1,124 @@
+<template>
+  <div class="sharepost">
+    <div class="closebutton" @click="closePost">
+      <p>閉じる</p>
+    </div>
+    <!-- share header -->
+    <div class="shareHeader">
+      <h3>
+        Share With Us!
+        <br />
+        <span class="small">みんなの知恵を集めています。</span>
+      </h3>
+    </div>
+    <form action method="post">
+      <p class="entry">
+        名前：
+        <br />
+        <input type="text" name="name" />
+      </p>
+      <p class="entry">
+        画像を選択する（投稿にふさわしい画像があれば選択ください）:
+        <br />
+        <input type="text" name="name" />
+      </p>
+      <p class="entry">
+        カテゴリー（※必須）:
+        <br />
+        <select name="category">
+          <option value="A">A型</option>
+          <option value="B">B型</option>
+          <option value="O">O型</option>
+          <option value="AB">AB型</option>
+        </select>
+      </p>
+      <p class="entry">
+        場所（※店舗情報の場合、必須）
+        <br />
+        <select name="category">
+          <option value="A">A型</option>
+          <option value="B">B型</option>
+          <option value="O">O型</option>
+          <option value="AB">AB型</option>
+        </select>
+      </p>
+      <p class="entry">
+        入れるもの（※容器情報の場合、必須）
+        <br />
+        <select name="category">
+          <option value="A">A型</option>
+          <option value="B">B型</option>
+          <option value="O">O型</option>
+          <option value="AB">AB型</option>
+        </select>
+      </p>
+      <p class="entry">
+        タイトル（※必須：最大30文字）
+        <br />
+        <input type="text" name="title" maxlength="30" />
+      </p>
+      <p class="entry">
+        投稿（※必須：最大2500文字）
+        <br />
+        <input type="text" name="content" class="article" maxlength="2500" />
+      </p>
+    </form>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    openPost: {
+      type: String
+    }
+  },
+  methods: {
+    closePost() {
+      this.$emit("close-post");
+    }
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+.small {
+  font-size: 0.8rem;
+}
+
+.sharepost {
+  background-color: #fff;
+  position: fixed;
+  width: 99%;
+  height: auto;
+  border-bottom: 1px solid #000;
+  z-index: 10;
+  padding: 3rem;
+  .shareHeader {
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+  .entry {
+    padding-bottom: 20px;
+    .article {
+      width: 100%;
+      height: 30%;
+    }
+  }
+  .closebutton {
+    position: relative;
+    top: 5%;
+    left: 100%;
+    background-color: #000;
+    width: 25%;
+    padding: 10px;
+    transform: rotate(90deg);
+    p {
+      color: #fff;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+</style>
+    

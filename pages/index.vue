@@ -1,5 +1,6 @@
 <template>
   <section class="container">
+    <TheNavigation v-if="seeNav" />
     <TopFirstView />
     <TopShopSearch />
     <TopGuide />
@@ -20,6 +21,11 @@ export default {
     TopShopSearch,
     TopGuide,
     TopVoices
+  },
+  data() {
+    return {
+      seeNav: false
+    };
   }
 };
 </script>

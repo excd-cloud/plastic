@@ -128,6 +128,9 @@ export default {
     },
     options() {
       return this.$store.state.shop.options;
+    },
+    selected() {
+      return this.$store.selected;
     }
   }
 };

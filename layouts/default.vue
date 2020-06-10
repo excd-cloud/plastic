@@ -1,7 +1,6 @@
 <template>
   <div>
     <Header v-on:toggle-nav="toggleNav" />
-    <TheNavigation v-show="seeNav" />
     <nuxt />
     <Footer />
   </div>
