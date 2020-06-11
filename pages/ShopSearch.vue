@@ -81,16 +81,25 @@
       </div>
     </form>
     <div class="shopList">
+      <!-- shoplist -->
       <div class="shopListTop">
         <p>店舗名</p>
         <p>アイテム</p>
       </div>
-      <div class="shopListingTable" v-for="shop in shops" :key="shop.table" @click="toggleDetails">
+      <!-- shop table -->
+      <div
+        class="shopListingTable"
+        v-for="shop in shops"
+        :key="shop.table"
+        @click="toggleDetails(target)"
+      >
+        <!-- shop table header -->
         <div class="shopListHeader">
           <p class="shopname">{{ shop.name }}</p>
           <p>{{ shop.product }}</p>
         </div>
-        <div class="shopDetails" v-show="details">
+        <!-- shop table details -->
+        <div class="shopDetails" v-if="target.show">
           <p class="detailsHeader">{{ shop.name }}</p>
           <p class="address">
             <font-awesome-icon icon="map-marker-alt" class="icon" />
@@ -114,14 +123,15 @@
 export default {
   data() {
     return {
-      details: false,
+      // showDetails: false,
       showOption: false,
       seeFilter: false
     };
   },
   methods: {
-    toggleDetails() {
-      this.details = true;
+    toggleDetails(target) {
+      this.$set(target, "show", true);
+      // this.showDetails = !this.showDetails;
     },
     toggle() {
       this.showOption = !this.showOption;
@@ -148,6 +158,11 @@ export default {
     },
     selected() {
       return this.$store.selected;
+    },
+    filteredShops() {
+      return this.shops.filter(shop => {
+        return shop.location.match();
+      });
     }
   }
 };
@@ -287,15 +302,15 @@ export default {
     display: flex;
     margin-bottom: 1rem;
     bottom: 0;
+    right: 0;
     position: fixed;
     width: 100%;
-
     button {
       background: #000;
       color: #fff;
       border: none;
       padding: 0.5rem;
-      width: 50%;
+      width: 100%;
       margin: 0rem 0.5rem;
     }
   }
