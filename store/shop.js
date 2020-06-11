@@ -7,7 +7,8 @@ export const state = () => ({
       description: "オリーブオイルとビネガーの量り売りをしている。",
       prefecture: "東京都",
       location: "自由が丘・二子玉川",
-      category: "量り売りOK"
+      category: "量り売りOK",
+      url: "https://oilvinegar.jp/"
     },
     {
       name: "職人醤油松屋銀座店",
@@ -17,7 +18,8 @@ export const state = () => ({
         "瓶を持って来ると、しょうゆの価格だけで購入することができる。",
       prefecture: "東京都",
       location: "銀座",
-      category: "量り売りOK"
+      category: "量り売りOK",
+      url: "https://www.s-shoyu.com/matsuya"
     },
     {
       name: "エコストア　アトレ恵比寿店",
@@ -26,7 +28,8 @@ export const state = () => ({
       description: "洗剤や石鹸などを量り売りしている。",
       prefecture: "東京都",
       location: "恵比寿・代官山・中目黒",
-      category: "量り売りOK"
+      category: "量り売りOK",
+      url: "https://www.atre.co.jp/store/ebisu/shop/detail/1581"
     }
   ],
   areas: [

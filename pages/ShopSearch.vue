@@ -80,14 +80,31 @@
         </div>
       </div>
     </form>
-
-    <div class="shopListingTable" v-for="shop in shops" :key="shop.table" @click="toggleDetails">
-      <p>{{ shop.name }}</p>
-      <p>{{ shop.product }}</p>
-      <div class="shopDetails" v-show="details">
-        <p>{{ shop.name }}</p>
-        <p>{{ shop.address }}</p>
-        <p>{{ shop.description }}</p>
+    <div class="shopList">
+      <div class="shopListTop">
+        <p>店舗名</p>
+        <p>アイテム</p>
+      </div>
+      <div class="shopListingTable" v-for="shop in shops" :key="shop.table" @click="toggleDetails">
+        <div class="shopListHeader">
+          <p class="shopname">{{ shop.name }}</p>
+          <p>{{ shop.product }}</p>
+        </div>
+        <div class="shopDetails" v-show="details">
+          <p class="detailsHeader">{{ shop.name }}</p>
+          <p class="address">
+            <font-awesome-icon icon="map-marker-alt" class="icon" />
+            {{ shop.address }}
+          </p>
+          <p class="shoplink">
+            <font-awesome-icon icon="hand-point-up" class="icon" />
+            <a :href="shop.url" target="_blank">WEB</a>
+          </p>
+          <p class="description">
+            <font-awesome-icon icon="comment" class="icon" />
+            {{ shop.description }}
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -142,6 +159,9 @@ export default {
   letter-spacing: 0.08rem;
 }
 
+.icon {
+  margin-right: 5px;
+}
 .shopsearch {
   padding: 5rem 0rem;
 }
@@ -164,14 +184,58 @@ export default {
   grid-template-columns: 50% 50%;
 }
 
-.shopListingTable {
+.shopListTop {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 60% 40%;
+  width: 90%;
+  padding: 10px;
+  margin: 0 auto;
+  p {
+    font-weight: 700;
+  }
 }
-
-.shopDetails {
-  display: grid;
-  grid-template-columns: 100%;
+.shopList {
+  margin-top: 2rem;
+  .shopListHeader {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    padding: 10px;
+    &:hover {
+      background-color: orange;
+      color: #fff;
+      border-bottom: 1px solid #333333;
+    }
+  }
+  .shopListingTable {
+    border-bottom: 1px solid #000;
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    p:first-child {
+      margin-right: 20px;
+    }
+  }
+  .shopDetails {
+    display: grid;
+    grid-template-columns: 100%;
+    padding: 10px;
+    .detailsHeader {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+    .shoplink {
+      margin-bottom: 10px;
+      a {
+        border-bottom: 1px solid #000;
+      }
+    }
+    .description {
+      padding: 2rem;
+      border: 1px solid #333333;
+      width: 70%;
+      margin: 0 auto;
+    }
+  }
 }
 
 .filterMenu {
