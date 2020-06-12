@@ -87,19 +87,14 @@
         <p>アイテム</p>
       </div>
       <!-- shop table -->
-      <div
-        class="shopListingTable"
-        v-for="shop in shops"
-        :key="shop.table"
-        @click="toggleDetails(target)"
-      >
+      <div class="shopListingTable" v-for="shop in shops" :key="shop.table" @click="toggleDetails">
         <!-- shop table header -->
         <div class="shopListHeader">
           <p class="shopname">{{ shop.name }}</p>
           <p>{{ shop.product }}</p>
         </div>
         <!-- shop table details -->
-        <div class="shopDetails" v-if="target.show">
+        <div class="shopDetails" v-if="showDetails">
           <p class="detailsHeader">{{ shop.name }}</p>
           <p class="address">
             <font-awesome-icon icon="map-marker-alt" class="icon" />
@@ -123,15 +118,15 @@
 export default {
   data() {
     return {
-      // showDetails: false,
+      showDetails: false,
       showOption: false,
       seeFilter: false
     };
   },
   methods: {
-    toggleDetails(target) {
-      this.$set(target, "show", true);
-      // this.showDetails = !this.showDetails;
+    toggleDetails() {
+      // this.$set(target, "show", true);
+      this.showDetails = !this.showDetails;
     },
     toggle() {
       this.showOption = !this.showOption;
