@@ -16,6 +16,11 @@ export default {
   components: {
     Header,
     Footer
+  },
+  data() {
+    return {
+      toggleNav: ""
+    }
   }
 };
 </script>

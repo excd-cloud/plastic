@@ -4,7 +4,7 @@
       <h4>
         <nuxt-link to="/">Sayonara Plastic</nuxt-link>
       </h4>
-      <div class="burger-icon" @click="toggleNav">
+      <div class="burger-icon" @click="toggleNav = !toggleNav">
         <div></div>
       </div>
     </div>

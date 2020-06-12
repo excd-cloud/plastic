@@ -22,6 +22,11 @@ export default {
     TopGuide,
     TopVoices
   },
+  props: {
+    toggleNav: {
+      type: String
+    }
+  },
   data() {
     return {
       seeNav: false
