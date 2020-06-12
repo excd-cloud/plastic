@@ -1,10 +1,6 @@
 <template>
   <div class="voices">
-    <SharePost
-      v-show="togglePost"
-      v-on:close-post="closePost"
-      v-bind:class="{slideOpen: togglePost, slideClose: !togglePost}"
-    />
+    <SharePost v-show="togglePost" v-on:close-post="closePost" v-bind:class="classObject" />
     <div class="postbutton" @click="openPost">
       <p>投稿する</p>
     </div>
@@ -30,6 +26,14 @@ export default {
     },
     closePost() {
       this.togglePost = false;
+    }
+  },
+  computed: {
+    classObject: function() {
+      return {
+        slideOpen: this.togglePost,
+        slideClose: !this.togglePost
+      };
     }
   }
 };
