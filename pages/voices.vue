@@ -1,6 +1,8 @@
 <template>
   <div class="voices">
-    <SharePost v-show="togglePost" v-on:close-post="closePost" v-bind:class="classObject" />
+    <transition name="slide-fade">
+      <SharePost v-if="togglePost" v-on:close-post="closePost" />
+    </transition>
     <div class="postbutton" @click="openPost">
       <p>投稿する</p>
     </div>
@@ -27,19 +29,24 @@ export default {
     closePost() {
       this.togglePost = false;
     }
-  },
-  computed: {
-    classObject: function() {
-      return {
-        slideOpen: this.togglePost,
-        slideClose: !this.togglePost
-      };
-    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.slide-fade-enter-active {
+  transition: all 0.4s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.4s ease-in-out;
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateX(-300px);
+}
+
 @keyframes slideRight {
   0% {
     transform: translateX(-300px);
