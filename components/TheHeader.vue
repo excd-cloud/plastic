@@ -12,14 +12,15 @@
 </template>
 
 <script>
-import TheNavigation from "./TheNavigation";
 export default {
-  components: {
-    TheNavigation
-  },
+  // methods: {
+  //   toggleNav() {
+  //     this.$nuxt.$emit("toggle-nav");
+  //   }
+  // }
   methods: {
     toggleNav() {
-      this.$nuxt.$emit("toggle-nav");
+      this.toggleState = !this.toggleState;
     }
   }
 };

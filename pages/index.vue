@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <TheNavigation v-if="seeNav" v-on:toggle-nav="toggleNav" />
+    <TheNavigation v-if="toggleState" v-on:toggle-nav="toggleNav" />
     <TopFirstView />
     <TopShopSearch />
     <TopGuide />
@@ -24,19 +24,24 @@ export default {
     TopVoices,
     TheNavigation
   },
-  data() {
-    return {
-      seeNav: false
-    };
-  },
-  mounted() {
-    this.$nuxt.$on("toggle-nav", toggleNav);
-  },
-  methods: {
-    toggleNav() {
-      this.seeNav = !this.seeNav;
+  // data() {
+  //   return {
+  //     seeNav: false
+  //   };
+  // },
+  computed: {
+    toggleState() {
+      return this.$store.state.store.toggleState;
     }
   }
+  // mounted() {
+  //   this.$nuxt.$on("toggle-nav", toggleNav);
+  // },
+  // methods: {
+  //   toggleNav() {
+  //     this.seeNav = !this.seeNav;
+  //   }
+  // }
 };
 </script>
 
