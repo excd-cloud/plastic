@@ -1,3 +1,5 @@
-export const state = () => ({});
+export const state = () => ({
+  state: false
+});
 
 export const getters = {};

@@ -4,7 +4,7 @@
       <h4>
         <nuxt-link to="/">Sayonara Plastic</nuxt-link>
       </h4>
-      <div class="burger-icon" @click="toggleNav = !toggleNav">
+      <div class="burger-icon" @click="toggleNav">
         <div></div>
       </div>
     </div>
@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     toggleNav() {
-      this.$emit("toggle-nav");
+      this.$nuxt.$emit("toggle-nav");
     }
   }
 };

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header v-on:toggle-nav="toggleNav" />
+    <Header />
     <nuxt />
     <Footer />
   </div>
@@ -16,11 +16,6 @@ export default {
   components: {
     Header,
     Footer
-  },
-  data() {
-    return {
-      toggleNav: ""
-    }
   }
 };
 </script>
