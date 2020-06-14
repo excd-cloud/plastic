@@ -1,6 +1,8 @@
 <template>
   <section class="container">
-    <TheNavigation v-if="toggleState" v-on:toggle-nav="toggleNav" />
+    <transition name="slide-fade">
+      <TheNavigation v-if="$store.state.nav.status" />
+    </transition>
     <TopFirstView />
     <TopShopSearch />
     <TopGuide />
@@ -23,26 +25,22 @@ export default {
     TopGuide,
     TopVoices,
     TheNavigation
-  },
-  // data() {
-  //   return {
-  //     seeNav: false
-  //   };
-  // },
-  computed: {
-    toggleState() {
-      return this.$store.state.store.toggleState;
-    }
   }
-  // mounted() {
-  //   this.$nuxt.$on("toggle-nav", toggleNav);
-  // },
-  // methods: {
-  //   toggleNav() {
-  //     this.seeNav = !this.seeNav;
-  //   }
-  // }
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.slide-fade-enter-active {
+  transition: all 0.6s cubic-bezier(0.65, 0.2, 0.4, 0.65);
+}
+
+.slide-fade-leave-active {
+  transition: all 0.6s cubic-bezier(0.65, 0.2, 0.4, 0.65);
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateY(-300px);
+  opacity: 0;
+}
+</style>

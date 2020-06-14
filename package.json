@@ -16,11 +16,13 @@
     "@fortawesome/free-brands-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "contentful": "^7.14.4",
+    "markdown-it": "^11.0.0",
     "nuxt": "^2.0.0",
     "nuxt-fontawesome": "^0.4.0",
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@nuxtjs/markdownit-loader": "^1.1.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^4.19.1",
     "eslint-friendly-formatter": "^4.0.1",

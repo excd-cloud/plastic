@@ -20,7 +20,7 @@
       <p class="entry">
         画像を選択する（投稿にふさわしい画像があれば選択ください）:
         <br />
-        <input type="text" name="name" />
+        <input type="file" name="file" />
       </p>
       <p class="entry">
         カテゴリー（※必須）:
@@ -89,22 +89,25 @@ export default {
 .sharepost {
   background-color: #fff;
   position: fixed;
-  width: 99%;
+  width: 90%;
+  border: 1px solid #000;
   height: auto;
-  border-bottom: 1px solid #000;
   z-index: 10;
   padding: 3rem;
-  .shareHeader {
-    text-align: center;
-    padding-bottom: 2rem;
+  input {
+    width: 100%;
   }
   .entry {
     padding-bottom: 20px;
     .article {
-      width: 100%;
-      height: 30%;
+      height: 150px;
     }
   }
+  .shareHeader {
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+
   .closebutton {
     position: relative;
     top: 5%;

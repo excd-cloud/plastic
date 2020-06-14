@@ -4,7 +4,7 @@
       <h4>
         <nuxt-link to="/">Sayonara Plastic</nuxt-link>
       </h4>
-      <div class="burger-icon" @click="toggleNav">
+      <div class="burger-icon" @click="toggle">
         <div></div>
       </div>
     </div>
@@ -12,16 +12,13 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
-  // methods: {
-  //   toggleNav() {
-  //     this.$nuxt.$emit("toggle-nav");
-  //   }
-  // }
   methods: {
-    toggleNav() {
-      this.toggleState = !this.toggleState;
-    }
+    ...mapMutations({
+      toggle: "nav/toggle"
+    })
   }
 };
 </script>
@@ -32,7 +29,7 @@ header {
   width: 100%;
   height: auto;
   padding: 2% 0%;
-  z-index: 10;
+  z-index: 15;
   background-color: white;
   top: 0;
   border-top: 1px solid #000;

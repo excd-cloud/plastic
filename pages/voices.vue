@@ -1,5 +1,6 @@
 <template>
   <div class="voices">
+    <TheNavigation v-if="$store.state.nav.status" />
     <transition name="slide-fade">
       <SharePost v-if="togglePost" v-on:close-post="closePost" />
     </transition>
@@ -11,11 +12,13 @@
 </template>
 
 <script>
+import TheNavigation from "../components/TheNavigation";
 import SharePost from "../components/VoicesSharePost";
 
 export default {
   components: {
-    SharePost
+    SharePost,
+    TheNavigation
   },
   data() {
     return {
@@ -47,36 +50,6 @@ export default {
   transform: translateX(-300px);
 }
 
-@keyframes slideRight {
-  0% {
-    transform: translateX(-300px);
-  }
-  100% {
-    transform: translateX(0px);
-  }
-}
-
-@keyframes slideLeft {
-  0% {
-    transform: translateX(0px);
-  }
-  100% {
-    transform: translateX(-300px);
-  }
-}
-
-.slideOpen {
-  animation: slideRight;
-  animation-duration: 0.3s;
-  animation-fill-mode: forwards;
-}
-
-.slideClose {
-  animation: slideLeft;
-  animation-duration: 0.3s;
-  animation-fill-mode: forwards;
-}
-
 .voices {
   padding-top: 46.5px;
   .postbutton {
@@ -87,6 +60,7 @@ export default {
     width: 25%;
     padding: 10px;
     transform: rotate(90deg);
+    z-index: 5;
     p {
       color: #fff;
       display: flex;

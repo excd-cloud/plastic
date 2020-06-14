@@ -1,5 +1,6 @@
 <template>
   <div class="shopsearch">
+    <TheNavigation v-if="$store.state.nav.status" />
     <div class="shopsearchHeader">
       <h2>Search for Shops!</h2>
       <p>量り売りOK/保存容器OKの店舗を紹介します。</p>
@@ -87,14 +88,19 @@
         <p>アイテム</p>
       </div>
       <!-- shop table -->
-      <div class="shopListingTable" v-for="shop in shops" :key="shop.table" @click="toggleDetails">
+      <div
+        class="shopListingTable"
+        v-for="(shop, index) in shops"
+        :key="shop.table"
+        @click="toggleDetails(index)"
+      >
         <!-- shop table header -->
         <div class="shopListHeader">
           <p class="shopname">{{ shop.name }}</p>
           <p>{{ shop.product }}</p>
         </div>
         <!-- shop table details -->
-        <div class="shopDetails" v-if="showDetails">
+        <div class="shopDetails" v-if="showDetails[index]">
           <p class="detailsHeader">{{ shop.name }}</p>
           <p class="address">
             <font-awesome-icon icon="map-marker-alt" class="icon" />
@@ -115,18 +121,31 @@
 </template>
 
 <script>
+import TheNavigation from "../components/TheNavigation";
 export default {
+  components: {
+    TheNavigation
+  },
   data() {
     return {
-      showDetails: false,
+      showDetails: [],
+      currentDetail: null,
       showOption: false,
       seeFilter: false
     };
   },
+  created() {
+    this.$store.state.shop.shops.forEach(() => {
+      this.showDetails.push(false);
+    });
+  },
   methods: {
-    toggleDetails() {
-      // this.$set(target, "show", true);
-      this.showDetails = !this.showDetails;
+    toggleDetails(index) {
+      if (this.currentDetail >= 0 && this.currentDetails != index) {
+        this.showDetails[this.currentDetail] = false;
+      }
+      this.showDetails[index] = !this.showDetails[index];
+      this.currentDetail = index;
     },
     toggle() {
       this.showOption = !this.showOption;
@@ -172,9 +191,6 @@ export default {
 .icon {
   margin-right: 5px;
 }
-.shopsearch {
-  padding: 5rem 0rem;
-}
 
 .searchFilterbtn {
   width: 80%;
@@ -184,9 +200,13 @@ export default {
   margin: 0 auto;
 }
 
+.shopsearch {
+  border-bottom: 1px solid #000;
+  padding-bottom: 6rem;
+}
 .shopsearchHeader {
   text-align: center;
-  padding: 2rem 0rem;
+  padding: 7rem 0rem 2rem;
 }
 
 .tableHeader {
@@ -220,7 +240,6 @@ export default {
     border-bottom: 1px solid #000;
     width: 90%;
     margin: 0 auto;
-    padding-bottom: 10px;
     p:first-child {
       margin-right: 20px;
     }

@@ -25,7 +25,7 @@
     <!-- <div class="menuFooter">
       <font-awesome-icon icon="envelope" class="icon" />
       <p>&copy; Sayonara Plastic 2020</p>
-    </div> -->
+    </div>-->
   </div>
 </template>
 
@@ -44,19 +44,16 @@ export default {};
 }
 
 .menu {
-  // animation-name: appear;
-  // animation-fill-mode: forwards;
-  // animation-iteration-count: 1;
-  // transition: 1s;
   position: fixed;
   background-color: #fff;
   width: 100%;
-  height: 95%;
+  height: 70%;
   border-right: 1px solid #000;
   border-bottom: 1px solid #000;
   border-top: 1px solid #000;
+  z-index: 10;
   ul {
-    padding: 5rem 2rem;
+    padding: 8rem 2rem;
     li {
       padding-bottom: 2rem;
     }
