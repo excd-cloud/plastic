@@ -29,7 +29,12 @@
           <div class="checkboxArea" v-show="showOption">
             <div id="checkboxes" v-for="area in areas" :key="area.section">
               <label for="select" id="one">
-                <input type="checkbox" :id="area.id" />
+                <input
+                  type="checkbox"
+                  :id="area.id"
+                  :value="location"
+                  @input="thisLocation"
+                />
                 {{ area.name }}
               </label>
             </div>
@@ -66,7 +71,11 @@
           </div>
           <!-- checkbox section-->
           <div class="checkboxArea" v-show="showOption">
-            <div id="checkboxes" v-for="option in options" :key="option.section">
+            <div
+              id="checkboxes"
+              v-for="option in options"
+              :key="option.section"
+            >
               <label for="select" id="one">
                 <input type="checkbox" :id="option.id" />
                 {{ option.name }}
@@ -122,6 +131,7 @@
 
 <script>
 import TheNavigation from "../components/TheNavigation";
+import { mapState } from "vuex";
 export default {
   components: {
     TheNavigation
@@ -131,7 +141,8 @@ export default {
       showDetails: [],
       currentDetail: null,
       showOption: false,
-      seeFilter: false
+      seeFilter: false,
+      categories: []
     };
   },
   created() {
@@ -139,7 +150,15 @@ export default {
       this.showDetails.push(false);
     });
   },
+  computed: {
+    ...mapState({
+      location: state => state.shops.location
+    })
+  },
   methods: {
+    thisLocation(e) {
+      this.$store.commit("thisLocation", e.target.value);
+    },
     toggleDetails(index) {
       if (this.currentDetail >= 0 && this.currentDetails != index) {
         this.showDetails[this.currentDetail] = false;
@@ -155,6 +174,11 @@ export default {
     },
     close() {
       this.showOption = false;
+    }
+  },
+  mutations: {
+    thisLocation(state, location) {
+      state.shop.location = location;
     }
   },
   computed: {

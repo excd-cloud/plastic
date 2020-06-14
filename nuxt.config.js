@@ -21,7 +21,7 @@ module.exports = {
   /*
    ** Modules
    */
-  modules: ["nuxt-fontawesome", "@nuxtjs/markdownit"],
+  modules: ["nuxt-fontawesome", "@nuxtjs/markdownit", "nuxt-vue-select"],
   fontawesome: {
     imports: [
       {
@@ -31,10 +31,11 @@ module.exports = {
     ]
   },
   markdownit: {
-    preset: "default",
-    linkify: true,
+    injected: true,
     breaks: true,
-    use: ["markdown-it-div", "markdown-it-attrs"]
+    html: true,
+    linkify: true,
+    typography: true
   },
   /*
    ** Fonts
@@ -57,7 +58,6 @@ module.exports = {
     CTF_PERSON_ID: config.CTF_PERSON_ID,
     CTF_BLOG_POST_TYPE_ID: config.CTF_BLOG_POST_TYPE_ID
   },
-  plugins: ["~plugins/contentful", "~/plugins/posts"],
   // ...
   /*
    ** Customize the progress bar color
