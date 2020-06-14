@@ -27,14 +27,9 @@
           </div>
           <!-- checkbox section -->
           <div class="checkboxArea" v-show="showOption">
-            <div id="checkboxes" v-for="area in areas" :key="area.section">
+            <div id="checkboxes" v-for="area in areas" :key="area.location">
               <label for="select" id="one">
-                <input
-                  type="checkbox"
-                  :id="area.id"
-                  :value="location"
-                  @input="thisLocation"
-                />
+                <input type="checkbox" :id="area.id" :value="area.name" />
                 {{ area.name }}
               </label>
             </div>
@@ -56,29 +51,6 @@
               <label for="select" id="one">
                 <input type="checkbox" :id="item.id" />
                 {{ item.name }}
-              </label>
-            </div>
-          </div>
-        </div>
-        <!-- search by bulk or package free-->
-        <!-- dropdown header -->
-        <div class="selectBoxArea">
-          <div class="selectBox" @click="toggle">
-            <div class="select">
-              <p>量り売りOK／持ち込み容器OK</p>
-              <font-awesome-icon icon="angle-down" class="icon" />
-            </div>
-          </div>
-          <!-- checkbox section-->
-          <div class="checkboxArea" v-show="showOption">
-            <div
-              id="checkboxes"
-              v-for="option in options"
-              :key="option.section"
-            >
-              <label for="select" id="one">
-                <input type="checkbox" :id="option.id" />
-                {{ option.name }}
               </label>
             </div>
           </div>

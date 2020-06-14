@@ -21,7 +21,7 @@ module.exports = {
   /*
    ** Modules
    */
-  modules: ["nuxt-fontawesome", "@nuxtjs/markdownit", "nuxt-vue-select"],
+  modules: ["nuxt-fontawesome", "@nuxtjs/markdownit", "nuxt-vue-multiselect"],
   fontawesome: {
     imports: [
       {
