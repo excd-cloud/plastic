@@ -15,7 +15,10 @@
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/markdownit": "^1.2.9",
+    "axios": "^0.19.2",
+    "bulma": "^0.9.0",
     "contentful": "^7.14.4",
     "markdown-it": "^11.0.0",
     "markdown-it-vue": "^1.1.2",
@@ -25,6 +28,7 @@
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@nuxt/components": "^0.3.4",
     "@nuxtjs/markdownit-loader": "^1.1.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^4.19.1",

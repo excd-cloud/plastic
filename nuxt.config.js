@@ -1,6 +1,9 @@
 // ./nuxt.config.js
 const config = require("./.contentful.json");
 
+require("dotenv").config();
+const client = require("./plugins/contentful");
+
 module.exports = {
   /*
    ** Headers of the page
@@ -18,10 +21,16 @@ module.exports = {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
+  plugins: ["~/plugins/contentful"],
   /*
    ** Modules
    */
-  modules: ["nuxt-fontawesome", "@nuxtjs/markdownit", "nuxt-vue-multiselect"],
+  modules: [
+    "nuxt-fontawesome",
+    "@nuxtjs/markdownit",
+    "nuxt-vue-multiselect",
+    "@nuxtjs/dotenv"
+  ],
   fontawesome: {
     imports: [
       {
@@ -37,6 +46,7 @@ module.exports = {
     linkify: true,
     typography: true
   },
+  buildModules: ["@nuxt/components"],
   /*
    ** Fonts
    */

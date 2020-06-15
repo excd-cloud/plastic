@@ -8,21 +8,54 @@
       <p>投稿する</p>
     </div>
     <h3>Voices</h3>
+    <!-- render data of the person -->
+    <!-- render blog posts -->
+    <ul>
+      <li v-for="post in posts" :key="post.section">
+        {{ post.fields.title }}
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import TheNavigation from "../components/TheNavigation";
-import SharePost from "../components/VoicesSharePost";
+import TheNavigation from "../../components/TheNavigation";
+import SharePost from "../../components/VoicesSharePost";
+import { createClient } from "~/plugins/contentful.js";
+
+const client = createClient();
 
 export default {
+  asyncData({ env }) {
+    return Promise.all([
+      // fetch the owner of the blog
+      client.getEntries({
+        "sys.id": env.CTF_PERSON_ID
+      }),
+      // fetch all blog posts sorted by creation date
+      client.getEntries({
+        content_type: env.CTF_BLOG_POST_TYPE_ID,
+        order: "-sys.createdAt"
+      })
+    ])
+      .then(([entries, posts]) => {
+        // return data that should be available
+        // in the template
+        return {
+          person: entries.items[0],
+          posts: posts.items
+        };
+      })
+      .catch(console.error);
+  },
   components: {
     SharePost,
     TheNavigation
   },
   data() {
     return {
-      togglePost: false
+      togglePost: false,
+      posts: []
     };
   },
   methods: {

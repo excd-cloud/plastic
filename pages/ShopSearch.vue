@@ -78,7 +78,7 @@
         <!-- shop table header -->
         <div class="shopListHeader">
           <p class="shopname">{{ shop.name }}</p>
-          <p>{{ shop.product }}</p>
+          <p>{{ shop.item }}</p>
         </div>
         <!-- shop table details -->
         <div class="shopDetails" v-if="showDetails[index]">

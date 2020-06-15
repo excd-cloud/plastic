@@ -20,7 +20,8 @@
       <p class="entry">
         画像を選択する（投稿にふさわしい画像があれば選択ください）:
         <br />
-        <input type="file" name="file" />
+        <input type="file" @change="onFileSelected" />
+        <button @click="onUpload">Upload</button>
       </p>
       <p class="entry">
         カテゴリー（※必須）:
@@ -68,6 +69,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      selectedFile: null
+    };
+  },
   props: {
     openPost: {
       type: String
@@ -76,7 +82,11 @@ export default {
   methods: {
     closePost() {
       this.$emit("close-post");
-    }
+    },
+    onFileSelected(event) {
+      this.selectedFile = event.target.files[0];
+    },
+    onUpload() {}
   }
 };
 </script>
@@ -124,4 +134,3 @@ export default {
   }
 }
 </style>
-    
