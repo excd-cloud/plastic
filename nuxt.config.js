@@ -21,6 +21,17 @@ module.exports = {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
+  generate: {
+    routes() {
+      return client
+        .getEntries({
+          content_type: config.CTF_BLOG_POST_TYPE_ID
+        })
+        .then(entries => {
+          return [...entries.item.map(entry => `posts/${entry.fields.slug}`)];
+        });
+    }
+  },
   plugins: ["~/plugins/contentful"],
   /*
    ** Modules

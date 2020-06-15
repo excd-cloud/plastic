@@ -10,11 +10,9 @@
     <h3>Voices</h3>
     <!-- render data of the person -->
     <!-- render blog posts -->
-    <ul>
-      <li v-for="post in posts" :key="post.section">
-        <nuxt-link :to="post.fields.slug">{{ post.fields.title }}</nuxt-link>
-      </li>
-    </ul>
+    <div class="content">
+      {{ post.fields.content }}
+    </div>
   </div>
 </template>
 
