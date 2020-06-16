@@ -8,11 +8,11 @@
       <p>投稿する</p>
     </div>
     <h3>Voices</h3>
-    <!-- render data of the person -->
-    <!-- render blog posts -->
-    <ul>
+    <ul class="articleSection">
       <li v-for="post in posts" :key="post.section">
-        <nuxt-link :to="post.fields.slug">{{ post.fields.title }}</nuxt-link>
+        <nuxt-link :to="{name:"voice-slug",params:{slug:post.fields.slug}}">
+          {{ post.fields.title }}
+        </nuxt-link>
       </li>
     </ul>
   </div>
@@ -102,6 +102,11 @@ export default {
   }
   h3 {
     text-align: center;
+    padding-bottom: 3rem;
+  }
+  .articleSection {
+    width: 90%;
+    margin: 0 auto;
   }
 }
 </style>
