@@ -88,6 +88,13 @@ module.exports = {
    ** Build configuration
    */
   extends: ["plugin:vue/vue3-recommended"],
+  head: {
+    script: [
+      {
+        src: "DrawSVGPlugin.min.js"
+      }
+    ]
+  },
   build: {
     /*
      ** Run ESLint on save

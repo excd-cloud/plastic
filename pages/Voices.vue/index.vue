@@ -10,7 +10,7 @@
     <h3>Voices</h3>
     <ul class="articleSection">
       <li v-for="post in posts" :key="post.section">
-        <nuxt-link :to="{name:"voice-slug",params:{slug:post.fields.slug}}">
+        <nuxt-link :to="`/voices/${post.fields.slug}`">
           {{ post.fields.title }}
         </nuxt-link>
       </li>

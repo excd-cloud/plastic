@@ -27,10 +27,14 @@
           </div>
           <!-- checkbox section -->
           <div class="checkboxArea" v-show="showOption">
-            <div id="checkboxes" v-for="area in areas" :key="area.location">
+            <div id="checkboxes" v-for="location in locations" :key="location">
               <label for="select" id="one">
-                <input type="checkbox" :id="area.id" :value="area.name" />
-                {{ area.name }}
+                <input
+                  type="checkbox"
+                  :id="location.id"
+                  :value="location.name"
+                />
+                {{ location.name }}
               </label>
             </div>
           </div>
@@ -118,9 +122,9 @@ export default {
     };
   },
   created() {
-    this.$store.state.shop.shops.forEach(() => {
-      this.showDetails.push(false);
-    });
+    for (const index in this.$store.state.shop.shops) {
+      this.$set(this.showDetails, index, false);
+    }
   },
   computed: {
     ...mapState({
@@ -128,14 +132,11 @@ export default {
     })
   },
   methods: {
-    thisLocation(e) {
-      this.$store.commit("thisLocation", e.target.value);
-    },
     toggleDetails(index) {
-      if (this.currentDetail >= 0 && this.currentDetails != index) {
+      if (this.currentDetail >= 0 && this.currentDetail != index) {
         this.showDetails[this.currentDetail] = false;
       }
-      this.showDetails[index] = !this.showDetails[index];
+      this.$set(this.showDetails, index, !this.showDetails[index]);
       this.currentDetail = index;
     },
     toggle() {
@@ -148,12 +149,10 @@ export default {
       this.showOption = false;
     }
   },
-  mutations: {
-    thisLocation(state, location) {
-      state.shop.location = location;
-    }
-  },
   computed: {
+    locations() {
+      return this.$store.state.shop.shops.location;
+    },
     shops() {
       return this.$store.state.shop.shops;
     },
