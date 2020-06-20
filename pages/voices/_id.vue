@@ -8,7 +8,6 @@
       <p>投稿する</p>
     </div>
     <div class="content" v-if="post">
-      {{ post }}
       {{ post.fields.title }}
     </div>
   </div>

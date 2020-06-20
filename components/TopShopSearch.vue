@@ -4,8 +4,7 @@
       <p class="paddingbtm">まずは迷わず…</p>
       <h3>
         容器を持ち込める店を
-        <br />探して
-        <br />みよう！
+        <br />探してみよう！
       </h3>
       <button>
         <nuxt-link to="/shopsearch">検索する</nuxt-link>
@@ -25,30 +24,59 @@
 }
 
 .topsearchsection {
-  display: flex;
+  display: grid;
+  grid-template-columns: 50% 50%;
   h3 {
     text-align: center;
   }
 }
 
-.topsearchsectiontext,
-figure {
-  padding: 3rem 0rem;
-  width: 50%;
-}
 .topsearchsectiontext {
-  padding: 3rem 1rem;
+  padding: 10rem 1rem;
 }
 
 button {
-  margin-top: 3rem;
   background-color: white;
   border: 1px solid black;
-  width: 100%;
-  padding: 4px;
+  padding: 15px;
+  width: 50%;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
 }
 
 .paddingbtm {
   padding-bottom: 1rem;
+  padding-left: 10rem;
+}
+
+figure {
+  max-height: 100%;
+  max-width: 100%;
+  img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .topsearchsectiontext {
+    padding: 2rem 0rem;
+  }
+  .topsearchsectiontext {
+    padding: 3rem 1rem;
+  }
+  .paddingbtm {
+    padding-left: 0rem;
+  }
+  button {
+    width: 100%;
+    margin-top: 3rem;
+    padding: 4px;
+  }
+  figure img {
+    height: 100%;
+  }
 }
 </style>

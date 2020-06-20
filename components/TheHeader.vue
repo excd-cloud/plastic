@@ -31,7 +31,7 @@ header {
   position: fixed;
   width: 100%;
   height: auto;
-  padding: 2% 0%;
+  padding: 1% 0%;
   z-index: 15;
   background-color: white;
   top: 0;
@@ -65,19 +65,13 @@ header {
   transition: all 0.2s ease-in-out;
 }
 
-// .burger-icon:hover:before {
-//   transform: translateY(10px) rotate(135deg);
-// }
-
-// .burger-icon:hover:after {
-//   transform: translateY(-7px) rotate(-135deg);
-// }
-
-// .burger-icon div:hover {
-//   transform: scale(0);
-// }
-
 .open {
   transform: translateX(300px);
+}
+
+@media screen and (max-width: 576px) {
+  header {
+    padding: 2% 0%;
+  }
 }
 </style>

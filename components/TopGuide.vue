@@ -1,16 +1,18 @@
 <template>
   <div class="topguide">
     <div class="guideTagline">
-      <p class="marginleft">でもどんな容器がいいのだろう?と思ったら。</p>
-      <h3>A Beginner’s Guide to Containers!</h3>
-      <p class="center">保存容器の買い物ガイド（簡単！）</p>
+      <p class="marginleft">でもどんな容器がいいの?と思ったら。</p>
+      <h3>保存容器の買い物ガイド</h3>
     </div>
     <figure v-for="image in images" :key="image.section">
       <img :src="require(`@/assets/img/${image.file}`)" :alt="image.name" />
       <div class="cover">
         <div class="textbox">
-          <nuxt-link :to="{name:'guide-id', params:{id:image.id}}" @click="clickImage(image)">
-            <p>{{image.description}}</p>
+          <nuxt-link
+            :to="{ name: 'guide-id', params: { id: image.id } }"
+            @click="clickImage(image)"
+          >
+            <p>{{ image.description }}</p>
           </nuxt-link>
         </div>
       </div>
@@ -36,12 +38,13 @@ export default {
 <style lang="scss" scoped>
 .topguide {
   border-top: 1px solid #000;
-  padding-top: 3rem;
+  padding-top: 6rem;
+  border-bottom: 1px solid #000;
   .guideTagline {
-    padding-bottom: 3rem;
+    padding-bottom: 6rem;
     line-height: 30px;
     p.marginleft {
-      margin-left: 3%;
+      margin-left: 30%;
     }
   }
   h3 {
@@ -52,7 +55,7 @@ export default {
   }
   figure {
     display: inline-block;
-    width: 50%;
+    width: 25%;
     border: 1px solid #000;
     position: relative;
     .cover {
@@ -80,6 +83,21 @@ export default {
         border-bottom: none;
         border-left: none;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .topguide {
+    padding-top: 3rem;
+    .guideTagline {
+      padding-bottom: 3rem;
+    }
+    p.marginleft {
+      margin-left: 3%;
+    }
+    figure {
+      width: 50%;
     }
   }
 }
