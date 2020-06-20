@@ -3,20 +3,23 @@
     <div class="guideTagline">
       <p class="marginleft">でもどんな容器がいいの?と思ったら。</p>
       <h3>保存容器の買い物ガイド</h3>
+      <p class="center">Beginner's Guide to Containers!</p>
     </div>
-    <figure v-for="image in images" :key="image.section">
-      <img :src="require(`@/assets/img/${image.file}`)" :alt="image.name" />
-      <div class="cover">
-        <div class="textbox">
-          <nuxt-link
-            :to="{ name: 'guide-id', params: { id: image.id } }"
-            @click="clickImage(image)"
-          >
-            <p>{{ image.description }}</p>
-          </nuxt-link>
+    <div class="containergrid">
+      <figure v-for="image in images" :key="image.section">
+        <img :src="require(`@/assets/img/${image.file}`)" :alt="image.name" />
+        <div class="cover">
+          <div class="textbox">
+            <nuxt-link
+              :to="{ name: 'guide-id', params: { id: image.id } }"
+              @click="clickImage(image)"
+            >
+              <p>{{ image.description }}</p>
+            </nuxt-link>
+          </div>
         </div>
-      </div>
-    </figure>
+      </figure>
+    </div>
   </div>
 </template>
 
@@ -38,7 +41,7 @@ export default {
 <style lang="scss" scoped>
 .topguide {
   border-top: 1px solid #000;
-  padding-top: 6rem;
+  padding: 6rem 0rem;
   border-bottom: 1px solid #000;
   .guideTagline {
     padding-bottom: 6rem;
@@ -46,6 +49,9 @@ export default {
     p.marginleft {
       margin-left: 30%;
     }
+  }
+  .containergrid {
+    padding: 0rem 5rem;
   }
   h3 {
     width: 80%;
@@ -90,11 +96,15 @@ export default {
 @media screen and (max-width: 576px) {
   .topguide {
     padding-top: 3rem;
+    padding-bottom: 0rem;
     .guideTagline {
       padding-bottom: 3rem;
+      p.marginleft {
+        margin-left: 6%;
+      }
     }
-    p.marginleft {
-      margin-left: 3%;
+    .containergrid {
+      padding: 0rem;
     }
     figure {
       width: 50%;

@@ -34,7 +34,7 @@ a {
   text-decoration: none;
   color: #000;
   font-size: $primaryfontsize;
-  letter-spacing: $primaryletterspacing;
+  letter-spacing: $letterspacing;
 }
 
 button:focus {
@@ -106,10 +106,6 @@ h3 {
     font-size: 13px;
     letter-spacing: 0.08rem;
     line-height: 28px;
-  }
-  h3 {
-    font-weight: 400;
-    letter-spacing: 0.08rem;
   }
   p {
     font-size: $mobilefontsize;

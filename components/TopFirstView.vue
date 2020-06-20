@@ -39,7 +39,7 @@
 <style lang="scss" scoped>
 $lineheight: 25px;
 .firstview {
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
 }
 
 .firstviewtophalf {
@@ -47,7 +47,7 @@ $lineheight: 25px;
 }
 
 h1 {
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
   padding-left: 5rem;
 }
 
@@ -81,12 +81,15 @@ figure {
   line-height: $lineheight;
 }
 p.point {
-  font-size: 9px;
+  font-size: 10px;
   width: 70%;
   margin: 0 auto;
 }
 
 @media screen and (max-width: 576px) {
+  .firstview {
+    padding-bottom: 2rem;
+  }
   .firstviewtophalf {
     padding-top: 5rem;
   }
@@ -96,6 +99,7 @@ p.point {
   }
   h1 {
     padding-left: 1rem;
+    padding-bottom: 2rem;
   }
   .flex {
     display: block;

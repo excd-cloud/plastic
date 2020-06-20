@@ -75,8 +75,11 @@ figure {
     margin-top: 3rem;
     padding: 4px;
   }
-  figure img {
-    height: 100%;
+  figure {
+    padding-top: 2rem;
+    img {
+      height: auto;
+    }
   }
 }
 </style>

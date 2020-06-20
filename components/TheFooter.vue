@@ -23,18 +23,37 @@
 
 <style lang="scss" scoped>
 footer {
-  text-align: center;
   padding-bottom: 1rem;
   ul {
-    padding: 2rem 0rem;
+    padding: 2rem 0rem 0rem;
+    display: flex;
+    justify-content: center;
   }
   li {
-    padding: 0.3rem 0rem;
+    padding: 0.3rem 1rem;
     font-size: 13px;
+    a {
+      font-size: 10px;
+    }
   }
   .copyright {
     padding-top: 1rem;
-    border-top: 1px solid #000;
+    text-align: center;
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  footer {
+    text-align: center;
+    ul {
+      padding: 2rem 0rem;
+      display: block;
+    }
+    li {
+      padding: 0.3rem 0rem;
+      font-size: 13px;
+    }
   }
 }
 </style>
