@@ -7,11 +7,9 @@
     <div class="postbutton" @click="openPost">
       <p>投稿する</p>
     </div>
-    <h3>Voices</h3>
-    <!-- render data of the person -->
-    <!-- render blog posts -->
-    <div class="content">
-      {{ post.fields.content }}
+    <div class="content" v-if="post">
+      {{ post }}
+      {{ post.fields.title }}
     </div>
   </div>
 </template>
@@ -24,24 +22,17 @@ import { createClient } from "~/plugins/contentful.js";
 const client = createClient();
 
 export default {
-  asyncData({ env }) {
+  asyncData({ params }) {
+    console.log(params);
     return Promise.all([
-      // fetch the owner of the blog
-      client.getEntries({
-        "sys.id": env.CTF_PERSON_ID
-      }),
-      // fetch all blog posts sorted by creation date
-      client.getEntries({
-        content_type: env.CTF_BLOG_POST_TYPE_ID,
-        order: "-sys.createdAt"
-      })
+      // get Entry id
+      client.getEntry(params.id)
     ])
-      .then(([entries, posts]) => {
+      .then(entry => {
         // return data that should be available
         // in the template
         return {
-          person: entries.items[0],
-          posts: posts.items
+          post: entry[0]
         };
       })
       .catch(console.error);
@@ -53,7 +44,7 @@ export default {
   data() {
     return {
       togglePost: false,
-      posts: []
+      posts: null
     };
   },
   methods: {

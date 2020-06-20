@@ -8,8 +8,7 @@ export const state = () => ({
       prefecture: "東京都",
       location: "自由が丘・二子玉川",
       category: "量り売りOK",
-      url: "https://oilvinegar.jp/",
-      id: 1
+      url: "https://oilvinegar.jp/"
     },
     {
       name: "職人醤油松屋銀座店",
@@ -20,8 +19,7 @@ export const state = () => ({
       prefecture: "東京都",
       location: "銀座",
       category: "量り売りOK",
-      url: "https://www.s-shoyu.com/matsuya",
-      id: 2
+      url: "https://www.s-shoyu.com/matsuya"
     },
     {
       name: "エコストア　アトレ恵比寿店",
@@ -31,8 +29,7 @@ export const state = () => ({
       prefecture: "東京都",
       location: "恵比寿・代官山・中目黒",
       category: "量り売りOK",
-      url: "https://www.atre.co.jp/store/ebisu/shop/detail/1581",
-      id: 3
+      url: "https://www.atre.co.jp/store/ebisu/shop/detail/1581"
     }
   ],
   areas: [
