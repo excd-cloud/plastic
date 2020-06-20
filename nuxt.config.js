@@ -90,9 +90,9 @@ module.exports = {
   extends: ["plugin:vue/vue3-recommended"],
   head: {
     script: [
-      {
-        src: "DrawSVGPlugin.min.js"
-      }
+      // {
+      //   src: "DrawSVGPlugin.min.js"
+      // }
     ]
   },
   build: {

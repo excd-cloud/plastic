@@ -126,11 +126,11 @@ export default {
       this.$set(this.showDetails, index, false);
     }
   },
-  computed: {
-    ...mapState({
-      location: state => state.shops.location
-    })
-  },
+  // computed: {
+  //   ...mapState({
+  //     location: state => state.shops.location
+  //   })
+  // },
   methods: {
     toggleDetails(index) {
       if (this.currentDetail >= 0 && this.currentDetail != index) {
