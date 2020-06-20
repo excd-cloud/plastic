@@ -3,23 +3,29 @@
     <ul>
       <li>
         <font-awesome-icon icon="hand-point-up" class="icon" />
-        <nuxt-link to="/shopsearch">Search Bulkshop</nuxt-link>
+        <nuxt-link to="/shopsearch" @click.native="close"
+          >Search Bulkshop</nuxt-link
+        >
       </li>
       <li>
         <font-awesome-icon icon="hand-point-up" class="icon" />
-        <nuxt-link to="/guide">Container Shopping Guide</nuxt-link>
+        <nuxt-link to="/guide" @click.native="close"
+          >Container Shopping Guide</nuxt-link
+        >
       </li>
       <li>
         <font-awesome-icon icon="hand-point-up" class="icon" />
-        <nuxt-link to="/voices">Voices</nuxt-link>
+        <nuxt-link to="/voices" @click.native="close">Voices</nuxt-link>
       </li>
       <li>
         <font-awesome-icon icon="hand-point-up" class="icon" />
-        <nuxt-link to="/privacypolicy">Privacy Policy</nuxt-link>
+        <nuxt-link to="/privacypolicy" @click.native="close"
+          >Privacy Policy</nuxt-link
+        >
       </li>
       <li>
         <font-awesome-icon icon="hand-point-up" class="icon" />
-        <nuxt-link to="/contact">Contact</nuxt-link>
+        <nuxt-link to="/contact" @click.native="close">Contact</nuxt-link>
       </li>
     </ul>
     <!-- <div class="menuFooter">
@@ -30,7 +36,15 @@
 </template>
 
 <script>
-export default {};
+import { mapMutations } from "vuex";
+
+export default {
+  methods: {
+    ...mapMutations({
+      close: "nav/close"
+    })
+  }
+};
 </script>
 
 <style lang="scss" scoped>

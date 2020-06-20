@@ -2,7 +2,7 @@
   <header class="header">
     <div class="headerflex">
       <h4>
-        <nuxt-link to="/">Sayonara Plastic</nuxt-link>
+        <nuxt-link to="/" @click.native="close">Sayonara Plastic</nuxt-link>
       </h4>
       <div class="burger-icon" @click="toggle">
         <div></div>
@@ -18,6 +18,9 @@ export default {
   methods: {
     ...mapMutations({
       toggle: "nav/toggle"
+    }),
+    ...mapMutations({
+      close: "nav/close"
     })
   }
 };
