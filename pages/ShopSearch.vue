@@ -19,14 +19,14 @@
         <!-- search by area -->
         <!-- dropdown header -->
         <div class="selectBoxArea">
-          <div class="selectBox" @click="toggle">
+          <div class="selectBox" @click="toggleLocation">
             <div class="select">
               <p>エリアから検索する</p>
               <font-awesome-icon icon="angle-down" class="icon" />
             </div>
           </div>
           <!-- checkbox section -->
-          <div class="checkboxArea" v-show="showOption">
+          <div class="checkboxArea" v-show="showLocation">
             <div id="checkboxes" v-for="location in locations" :key="location">
               <label for="select" id="one">
                 <input type="checkbox" :value="location.name" />
@@ -39,14 +39,14 @@
         <!-- search by item -->
         <!-- dropdown header -->
         <div class="selectBoxArea">
-          <div class="selectBox" @click="toggle">
+          <div class="selectBox" @click="toggleItem">
             <div class="select">
               <p>買いたいものを検索する</p>
               <font-awesome-icon icon="angle-down" class="icon" />
             </div>
           </div>
           <!-- checkbox section-->
-          <div class="checkboxArea" v-show="showOption">
+          <div class="checkboxArea" v-show="showItem">
             <div id="checkboxes" v-for="item in items" :key="item.section">
               <label for="select" id="one">
                 <input type="checkbox" :id="item.id" />
@@ -112,9 +112,10 @@ export default {
     return {
       showDetails: [],
       currentDetail: null,
-      showOption: false,
       seeFilter: false,
-      categories: []
+      categories: [],
+      showItem: false,
+      showLocation: false
     };
   },
   created() {
@@ -122,21 +123,19 @@ export default {
       this.$set(this.showDetails, index, false);
     }
   },
-  // computed: {
-  //   ...mapState({
-  //     location: state => state.shops.location
-  //   })
-  // },
   methods: {
+    toggleLocation() {
+      this.showLocation = !this.showLocation;
+    },
+    toggleItem() {
+      this.showItem = !this.showItem;
+    },
     toggleDetails(index) {
       if (this.currentDetail >= 0 && this.currentDetail != index) {
         this.showDetails[this.currentDetail] = false;
       }
       this.$set(this.showDetails, index, !this.showDetails[index]);
       this.currentDetail = index;
-    },
-    toggle() {
-      this.showOption = !this.showOption;
     },
     filterSearch() {
       this.seeFilter = true;
@@ -204,7 +203,7 @@ export default {
 }
 
 .selectBoxArea {
-  width: 40%;
+  width: 50%;
   margin: 0 auto;
   .select {
     p {
