@@ -72,16 +72,17 @@ export default {
 
 <style lang="scss" scoped>
 .slide-fade-enter-active {
-  transition: all 0.4s ease;
+  transition: all 0.6s ease;
 }
 
 .slide-fade-leave-active {
-  transition: all 0.4s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
 .slide-fade-enter,
 .slide-fade-leave-to {
   transform: translateX(-300px);
+  opacity: 0;
 }
 
 .voices {
@@ -89,7 +90,7 @@ export default {
   .postbutton {
     position: relative;
     margin-top: 10%;
-    left: -9%;
+    left: -11.5%;
     background-color: #000;
     width: 25%;
     padding: 10px;
@@ -104,10 +105,22 @@ export default {
   h3 {
     text-align: center;
     padding-bottom: 3rem;
+    margin-top: -100px;
   }
   .articleSection {
     width: 90%;
     margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .voices {
+    .postbutton {
+      left: -9%;
+    }
+    h3 {
+      margin-top: 0px;
+    }
   }
 }
 </style>

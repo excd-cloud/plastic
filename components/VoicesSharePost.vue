@@ -98,7 +98,7 @@ export default {
 
 .sharepost {
   background-color: #fff;
-  position: fixed;
+  position: absolute;
   width: 90%;
   border: 1px solid #000;
   height: auto;
@@ -121,15 +121,25 @@ export default {
   .closebutton {
     position: relative;
     top: 5%;
-    left: 100%;
+    left: 93.2%;
     background-color: #000;
     width: 25%;
     padding: 10px;
     transform: rotate(90deg);
+    margin-top: 8%;
     p {
       color: #fff;
       display: flex;
       justify-content: center;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .sharepost {
+    .closebutton {
+      left: 111.5%;
+      margin-top: -11%;
     }
   }
 }
