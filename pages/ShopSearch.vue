@@ -2,7 +2,7 @@
   <div class="shopsearch">
     <TheNavigation v-if="$store.state.nav.status" />
     <div class="shopsearchHeader">
-      <h2>Search for Shops!</h2>
+      <h3>Search for Shops!</h3>
       <p>量り売りOK/保存容器OKの店舗を紹介します。</p>
     </div>
     <!-- filter search button -->
@@ -29,11 +29,7 @@
           <div class="checkboxArea" v-show="showOption">
             <div id="checkboxes" v-for="location in locations" :key="location">
               <label for="select" id="one">
-                <input
-                  type="checkbox"
-                  :id="location.id"
-                  :value="location.name"
-                />
+                <input type="checkbox" :value="location.name" />
                 {{ location.name }}
               </label>
             </div>
@@ -188,7 +184,7 @@ export default {
 }
 
 .searchFilterbtn {
-  width: 80%;
+  width: 30%;
   border: 1px solid black;
   padding: 0.5rem 0rem;
   text-align: center;
@@ -202,6 +198,20 @@ export default {
 .shopsearchHeader {
   text-align: center;
   padding: 7rem 0rem 2rem;
+  h2 {
+    padding-bottom: 1rem;
+  }
+}
+
+.selectBoxArea {
+  width: 40%;
+  margin: 0 auto;
+  .select {
+    p {
+      width: 70%;
+      margin-left: 10%;
+    }
+  }
 }
 
 .tableHeader {
@@ -212,19 +222,19 @@ export default {
 .shopListTop {
   display: grid;
   grid-template-columns: 60% 40%;
-  width: 90%;
   padding: 10px;
-  margin: 0 auto;
   p {
     font-weight: 700;
   }
 }
 .shopList {
-  margin-top: 2rem;
+  width: 70%;
+  margin: 6rem auto;
   .shopListHeader {
     display: grid;
     grid-template-columns: 60% 40%;
     padding: 10px;
+    transition: 0.5s;
     &:hover {
       background-color: orange;
       color: #fff;
@@ -233,8 +243,7 @@ export default {
   }
   .shopListingTable {
     border-bottom: 1px solid #000;
-    width: 90%;
-    margin: 0 auto;
+
     p:first-child {
       margin-right: 20px;
     }
@@ -263,14 +272,14 @@ export default {
 }
 
 .filterMenu {
-  position: fixed;
+  position: absolute;
   padding: 5rem 0rem 0rem;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 5%;
+  left: 20%;
+  width: 60%;
+  height: auto;
   z-index: 20;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.97);
   border: black 1px solid;
   h3 {
     text-align: center;
@@ -309,10 +318,9 @@ export default {
   }
   .searchOptionBtn {
     display: flex;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     bottom: 0;
     right: 0;
-    position: fixed;
     width: 100%;
     button {
       background: #000;
@@ -322,6 +330,25 @@ export default {
       width: 100%;
       margin: 0rem 0.5rem;
     }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .searchFilterbtn {
+    width: 80%;
+  }
+  .shopList {
+    width: 90%;
+    margin: 4rem auto;
+  }
+  .selectBoxArea {
+    width: 100%;
+  }
+  .filterMenu {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
 </style>

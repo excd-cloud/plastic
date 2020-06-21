@@ -4,7 +4,14 @@
       <TheNavigation v-show="$store.state.nav.status" />
     </transition>
     <div class="inner">
-      <h3>Contact Us</h3>
+      <div class="contactHeader">
+        <h3>
+          Contact Us
+        </h3>
+        <p class="small">
+          Sayonara Plasticの店舗リストへの掲載を希望される事業主さまは<br />こちらからご連絡ください。
+        </p>
+      </div>
       <div class="content">
         <form name="contact" action method="post" netlify>
           <input type="hidden" name="form-name" value="contact" />
@@ -57,14 +64,21 @@ export default {
   border-bottom: 1px solid #000;
   height: 100%;
   .inner {
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     padding-bottom: 8rem;
+  }
+  .contactHeader {
+    p {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
   }
 }
 h3 {
   text-align: center;
-  padding: 7rem 0rem 5rem;
+  padding: 10rem 0rem 3rem;
+  line-height: 25px;
 }
 
 .labelcell {
@@ -72,6 +86,10 @@ h3 {
   input,
   textarea {
     width: 100%;
+    height: auto;
+    padding: 10px;
+    border: 1px solid #303030;
+    margin-bottom: 5%;
   }
 }
 
@@ -81,22 +99,27 @@ form {
 }
 
 form input.form-button {
-  background-color: #000;
-  border: none;
-  color: #fff;
+  background-color: #fff;
+  border: 1px solid #303030;
+  color: #000;
   padding: 1rem;
   font-family: "Source Code Pro", monospace;
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-top: 1rem;
+  transition: 0.5s;
+  &:hover {
+    background-color: #000;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
 }
 
 @media screen and (max-width: 576px) {
   form {
     width: 100%;
-  }
-  h3 {
-    padding-bottom: 2rem;
   }
   .container {
     .inner {

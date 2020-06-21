@@ -71,6 +71,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// * - - slidefade for nav - - * //
+.slide-fade-enter-active {
+  transition: all 0.6s cubic-bezier(0.65, 0.2, 0.4, 0.65);
+}
+
+.slide-fade-leave-active {
+  transition: all 0.6s cubic-bezier(0.65, 0.2, 0.4, 0.65);
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateY(-300px);
+  opacity: 0;
+}
+// * - - - - - - - - - - - - - * //
 .slide-fade-enter-active {
   transition: all 0.6s ease;
 }
@@ -117,6 +132,7 @@ export default {
   .voices {
     .postbutton {
       left: -9%;
+      margin-top: 8%;
     }
     h3 {
       margin-top: 0px;

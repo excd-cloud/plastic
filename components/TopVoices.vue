@@ -7,12 +7,14 @@
 
     <div class="voicestagline">
       <p>
-        プラごみ削減に熱心な人々の声を集めています。こんなところでも容器を持ち込めたよ。こんな容器を使っているけど、おすすめだよ。投稿するもよし、見に寄るもよし。
+        プラごみ削減に熱心なみなさまの声を集めています。こんなところでも容器を持ち込めたよ。こんな容器を使っているけど、おすすめだよ。たくさんの人と共有してみませんか。もちろん立ち寄るだけもありです。
       </p>
     </div>
-    <button>
-      <nuxt-link to="/voices">覗いてみる</nuxt-link>
-    </button>
+    <nuxt-link to="/voices">
+      <button>
+        <span class="letterspace">覗いてみる</span>
+      </button>
+    </nuxt-link>
   </div>
 </template>
 
@@ -30,12 +32,16 @@
     padding-bottom: 2rem;
   }
   button {
-    background-color: #000;
-    width: 30%;
+    background-color: #fff;
+    width: 20%;
     padding: 15px;
-    border: none;
-    a {
+    border: 1px solid #000;
+    color: #000;
+    transition: 0.5s;
+    &:hover {
+      background-color: #000;
       color: #fff;
+      cursor: pointer;
     }
   }
 }

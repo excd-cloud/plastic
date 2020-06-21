@@ -21,7 +21,13 @@ $primaryletterspacing: 0.3rem;
 $letterspacing: 0.08rem;
 
 /* 01. General + Global */
-
+.letterspace {
+  letter-spacing: 0.08rem;
+}
+.small {
+  font-size: 11px;
+  font-weight: 400;
+}
 .page-enter-active,
 .page-leave-active {
   transition: opacity 0.5s;

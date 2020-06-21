@@ -6,9 +6,11 @@
         容器を持ち込める店を
         <br />探してみよう！
       </h3>
-      <button>
-        <nuxt-link to="/shopsearch">検索する</nuxt-link>
-      </button>
+      <nuxt-link to="/shopsearch">
+        <button class="shopsearchbtn">
+          <span class="letterspace">検索する</span>
+        </button>
+      </nuxt-link>
     </div>
 
     <figure>
@@ -43,6 +45,12 @@ button {
   margin: 1rem auto;
   display: flex;
   justify-content: center;
+  transition: 0.5s;
+  &:hover {
+    cursor: pointer;
+    background-color: #000;
+    color: #fff;
+  }
 }
 
 .paddingbtm {
