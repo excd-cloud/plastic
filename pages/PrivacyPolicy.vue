@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <TheNavigation v-show="$store.state.nav.status" />
+    <transition name="slide-fade">
+      <TheNavigation v-show="$store.state.nav.status" />
+    </transition>
     <div class="privacypolicy">
       <h3>Privacy Policy</h3>
       <div class="text">
@@ -165,9 +167,32 @@
   </div>
 </template>
 
-<script></script>
+<script>
+import TheNavigation from "../components/TheNavigation";
+export default {
+  components: {
+    TheNavigation
+  }
+};
+</script>
 
 <style lang="scss" scoped>
+// * - - slidefade for nav - - * //
+.slide-fade-enter-active {
+  transition: all 0.6s cubic-bezier(0.65, 0.2, 0.4, 0.65);
+}
+
+.slide-fade-leave-active {
+  transition: all 0.6s cubic-bezier(0.65, 0.2, 0.4, 0.65);
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateY(-300px);
+  opacity: 0;
+}
+// * - - - - - - - - - - - - - * //
+
 .privacypolicy {
   padding-top: 5rem;
   border-bottom: 1px solid #000;

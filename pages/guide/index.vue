@@ -18,15 +18,16 @@ export default {
 
 <style lang="scss" scoped>
 .slide-fade-enter-active {
-  transition: all 0.4s ease;
+  transition: all 0.6s cubic-bezier(0.65, 0.2, 0.4, 0.65);
 }
 
 .slide-fade-leave-active {
-  transition: all 0.4s ease-in-out;
+  transition: all 0.6s cubic-bezier(0.65, 0.2, 0.4, 0.65);
 }
 
 .slide-fade-enter,
 .slide-fade-leave-to {
   transform: translateY(-300px);
+  opacity: 0;
 }
 </style>

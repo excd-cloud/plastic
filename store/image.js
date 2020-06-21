@@ -5,6 +5,7 @@ export const state = () => ({
       id: "oliveoil",
       file: "olive.jpg",
       description: "オリーブオイルを入れる容器",
+      katakana: "オリーブオイル",
       details:
         "抗酸化作用を豊富に含むことから健康にもいいと知られるオリーブオイル。保存するうえで気をつけなければいけないのは「紫外線」「空気」「熱」。これらにさらしてしまうとオリーブオイルの風味や品質が失われてしまいます。長持ちさせるためには、紫外線を通さない黒い遮光瓶がおすすめのようです。透明のガラス瓶の場合、アルミホイルで包むなどすると紫外線から守れます。ペットボトルやプラスチックの容器は空気を通してしまうため不向きで、ガラス製の密閉容器がいいようです。",
       yes: "ガラス製容器（黒い遮光瓶がおすすめ）",
@@ -40,6 +41,7 @@ export const state = () => ({
       name: "Bread",
       id: "bread",
       file: "breadcontainer.jpg",
+      katakana: "パン",
       description: "パンを入れる容器",
       details:
         "パンは、かばんのスペースを占領しない布袋に入れてあげましょう。フランスパンなど背の高いパンは布で包むのがおすすめです。そうして持ち帰ったパンはすぐにでも食べてあげない限り、カビと乾燥との戦いがはじまります。この二つが早々に起きないためにも、水分を失うスピードをできるだけ遅らせたいところです。そのお手伝いをするのがブレッドケース。布袋、またはビーズワックスラップで包んだままブレッドケースに入れれば、2日から3日ほどもちます。ブレッドケースはステンレスのポットやダッチオーブンで代用できます。あるいは日の当たらないところで保存しておくのもいいようです。",
@@ -79,24 +81,28 @@ export const state = () => ({
     {
       name: "coffee",
       id: "coffee",
+      katakana: "コーヒー",
       file: "coffee.jpg",
       description: "コーヒー豆を入れる容器"
     },
     {
       name: "detergent",
       id: "detergent",
+      katakana: "洗剤",
       file: "detergent.jpg",
       description: "洗剤を入れる容器"
     },
     {
       name: "meat",
       id: "meat",
+      katakana: "肉",
       file: "meat.jpg",
       description: "お肉を入れる容器"
     },
     {
       name: "fish",
       id: "fish",
+      katakana: "魚",
       file: "fish.jpg",
       description: "お魚を入れる容器"
     }
