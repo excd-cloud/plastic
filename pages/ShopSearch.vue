@@ -29,8 +29,8 @@
           <div class="checkboxArea" v-show="showLocation">
             <div id="checkboxes" v-for="location in locations" :key="location">
               <label for="select" id="one">
-                <input type="checkbox" :value="location.name" />
-                {{ location.name }}
+                <input type="checkbox" :value="location" />
+                {{ location }}
               </label>
             </div>
           </div>
@@ -49,16 +49,18 @@
           <div class="checkboxArea" v-show="showItem">
             <div id="checkboxes" v-for="item in items" :key="item.section">
               <label for="select" id="one">
-                <input type="checkbox" :id="item.id" />
-                {{ item.name }}
+                <input type="checkbox" :value="item" />
+                {{ item }}
               </label>
             </div>
           </div>
         </div>
 
         <div class="searchOptionBtn">
-          <button @click="close">クリアする</button>
-          <button>検索する</button>
+          <button>
+            <span class="letterspace">クリアする</span>
+          </button>
+          <button><span class="letterspace">検索する</span></button>
         </div>
       </div>
     </form>
@@ -146,19 +148,23 @@ export default {
   },
   computed: {
     locations() {
-      return this.$store.state.shop.shops.location;
+      let locations = [];
+      const shops = this.$store.state.shop.shops;
+      for (let i = 0; i < shops.length; i++) {
+        locations.push(shops[i].location);
+      }
+      return locations;
+    },
+    items() {
+      let items = [];
+      const shops = this.$store.state.shop.shops;
+      for (let i = 0; i < shops.length; i++) {
+        items.push(shops[i].item);
+      }
+      return items;
     },
     shops() {
       return this.$store.state.shop.shops;
-    },
-    areas() {
-      return this.$store.state.shop.areas;
-    },
-    items() {
-      return this.$store.state.shop.items;
-    },
-    options() {
-      return this.$store.state.shop.options;
     },
     selected() {
       return this.$store.selected;
@@ -202,6 +208,17 @@ export default {
   }
 }
 
+.selectBox,
+#checkboxes {
+  cursor: pointer;
+}
+.selectBox,
+#checkboxes input,
+button {
+  &:hover {
+    cursor: pointer;
+  }
+}
 .selectBoxArea {
   width: 50%;
   margin: 0 auto;
