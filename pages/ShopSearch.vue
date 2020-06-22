@@ -29,7 +29,12 @@
           <div class="checkboxArea" v-show="showLocation">
             <div id="checkboxes" v-for="location in locations" :key="location">
               <label for="select" id="one">
-                <input type="checkbox" :value="location" />
+                <input
+                  type="checkbox"
+                  :value="location"
+                  v-model="item.checked"
+                  ref="precheck"
+                />
                 {{ location }}
               </label>
             </div>
@@ -47,9 +52,14 @@
           </div>
           <!-- checkbox section-->
           <div class="checkboxArea" v-show="showItem">
-            <div id="checkboxes" v-for="item in items" :key="item.section">
+            <div id="checkboxes" v-for="item in items" :key="item.id">
               <label for="select" id="one">
-                <input type="checkbox" :value="item" />
+                <input
+                  type="checkbox"
+                  :value="item"
+                  v-model="item.checked"
+                  ref="precheck"
+                />
                 {{ item }}
               </label>
             </div>
@@ -117,8 +127,13 @@ export default {
       seeFilter: false,
       categories: [],
       showItem: false,
-      showLocation: false
+      showLocation: false,
+      checked: []
     };
+  },
+  mounted() {
+    this.checked.push(this.$refs.precheck.value);
+    console.log(this.checked);
   },
   created() {
     for (const index in this.$store.state.shop.shops) {
@@ -126,6 +141,11 @@ export default {
     }
   },
   methods: {
+    showCheckboxBoolean() {
+      if (this.$refs.selected.checked == true) {
+        console.log(this.$route.items && this.$route.locations);
+      }
+    },
     toggleLocation() {
       this.showLocation = !this.showLocation;
     },
@@ -166,9 +186,9 @@ export default {
     shops() {
       return this.$store.state.shop.shops;
     },
-    selected() {
-      return this.$store.selected;
-    },
+    // selected() {
+    //   return this.$store.selected;
+    // },
     filteredShops() {
       return this.shops.filter(shop => {
         return shop.location.match();
