@@ -27,14 +27,9 @@
           </div>
           <!-- checkbox section -->
           <div class="checkboxArea" v-show="showLocation">
-            <div id="checkboxes" v-for="location in locations" :key="location">
+            <div id="checkboxes" v-for="(location, index) in locations" :key="index.location">
               <label for="select" id="one">
-                <input
-                  type="checkbox"
-                  :value="location"
-                  v-model="item.checked"
-                  ref="precheck"
-                />
+                <input type="checkbox" :value="location" v-model="selectLocations[index]" />
                 {{ location }}
               </label>
             </div>
@@ -52,25 +47,22 @@
           </div>
           <!-- checkbox section-->
           <div class="checkboxArea" v-show="showItem">
-            <div id="checkboxes" v-for="item in items" :key="item.id">
+            <div id="checkboxes" v-for="(value, index) in items" :key="index">
               <label for="select" id="one">
-                <input
-                  type="checkbox"
-                  :value="item"
-                  v-model="item.checked"
-                  ref="precheck"
-                />
-                {{ item }}
+                <input type="checkbox" :value="value" v-model="selectItems[index]" />
+                {{ value }}
               </label>
             </div>
           </div>
         </div>
 
         <div class="searchOptionBtn">
-          <button>
+          <div @click="clear">
             <span class="letterspace">クリアする</span>
+          </div>
+          <button>
+            <span class="letterspace">検索する</span>
           </button>
-          <button><span class="letterspace">検索する</span></button>
         </div>
       </div>
     </form>
@@ -128,22 +120,22 @@ export default {
       categories: [],
       showItem: false,
       showLocation: false,
-      checked: []
+      selectLocations: [],
+      selectItems: []
     };
-  },
-  mounted() {
-    this.checked.push(this.$refs.precheck.value);
-    console.log(this.checked);
   },
   created() {
     for (const index in this.$store.state.shop.shops) {
       this.$set(this.showDetails, index, false);
+      this.$set(this.selectLocations, index, false);
+      this.$set(this.selectItems, index, false);
     }
   },
   methods: {
-    showCheckboxBoolean() {
-      if (this.$refs.selected.checked == true) {
-        console.log(this.$route.items && this.$route.locations);
+    clear() {
+      for (const index in this.$store.state.shop.shops) {
+        this.$set(this.selectItems, index, false);
+        this.$set(this.selectLocations, index, false);
       }
     },
     toggleLocation() {

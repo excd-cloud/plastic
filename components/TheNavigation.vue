@@ -3,25 +3,15 @@
     <ul>
       <li>
         <font-awesome-icon icon="hand-point-up" class="icon" />
-        <nuxt-link to="/shopsearch" @click.native="close"
-          >Search Bulkshop</nuxt-link
-        >
+        <nuxt-link to="/shopsearch" @click.native="close">Search Bulkshop</nuxt-link>
       </li>
       <li>
         <font-awesome-icon icon="hand-point-up" class="icon" />
-        <nuxt-link to="/guide" @click.native="close"
-          >Container Shopping Guide</nuxt-link
-        >
+        <nuxt-link to="/guide" @click.native="close">Container Shopping Guide</nuxt-link>
       </li>
       <li>
         <font-awesome-icon icon="hand-point-up" class="icon" />
         <nuxt-link to="/voices" @click.native="close">Voices</nuxt-link>
-      </li>
-      <li>
-        <font-awesome-icon icon="hand-point-up" class="icon" />
-        <nuxt-link to="/privacypolicy" @click.native="close"
-          >Privacy Policy</nuxt-link
-        >
       </li>
       <li>
         <font-awesome-icon icon="hand-point-up" class="icon" />
