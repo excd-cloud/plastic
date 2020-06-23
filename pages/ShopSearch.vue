@@ -29,7 +29,7 @@
           <div class="checkboxArea" v-show="showLocation">
             <div id="checkboxes" v-for="(location, index) in locations" :key="index.location">
               <label for="select" id="one">
-                <input type="checkbox" :value="location" v-model="selectLocations[index]" />
+                <input type="checkbox" :value="location" v-model="selectLocations[index].status" />
                 {{ location }}
               </label>
             </div>
@@ -49,7 +49,7 @@
           <div class="checkboxArea" v-show="showItem">
             <div id="checkboxes" v-for="(value, index) in items" :key="index">
               <label for="select" id="one">
-                <input type="checkbox" :value="value" v-model="selectItems[index]" />
+                <input type="checkbox" :value="value" v-model="selectItems[index].status" />
                 {{ value }}
               </label>
             </div>
@@ -126,9 +126,16 @@ export default {
   },
   created() {
     for (const index in this.$store.state.shop.shops) {
+      const shop = this.$store.state.shop.shops[index];
       this.$set(this.showDetails, index, false);
-      this.$set(this.selectLocations, index, false);
-      this.$set(this.selectItems, index, false);
+      this.$set(this.selectLocations, index, {
+        name: shop.location,
+        status: false
+      });
+      this.$set(this.selectItems, index, {
+        name: shop.item,
+        status: false
+      });
     }
   },
   methods: {
