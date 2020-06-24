@@ -51,6 +51,9 @@ header {
 .burger-icon {
   width: 25px;
   margin: 0 5% 0 0;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .burger-icon:after,

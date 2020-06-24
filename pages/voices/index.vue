@@ -1,6 +1,8 @@
 <template>
   <div class="voices">
-    <TheNavigation v-if="$store.state.nav.status" />
+    <transition name="slide-updown">
+      <TheNavigation v-if="$store.state.nav.status" />
+    </transition>
     <transition name="slide-fade">
       <SharePost v-if="togglePost" v-on:close-post="closePost" />
     </transition>
@@ -72,16 +74,16 @@ export default {
 
 <style lang="scss" scoped>
 // * - - slidefade for nav - - * //
-.slide-fade-enter-active {
+.slide-updown-enter-active {
   transition: all 0.6s cubic-bezier(0.65, 0.2, 0.4, 0.65);
 }
 
-.slide-fade-leave-active {
+.slide-updown-leave-active {
   transition: all 0.6s cubic-bezier(0.65, 0.2, 0.4, 0.65);
 }
 
-.slide-fade-enter,
-.slide-fade-leave-to {
+.slide-updown-enter,
+.slide-updown-leave-to {
   transform: translateY(-300px);
   opacity: 0;
 }

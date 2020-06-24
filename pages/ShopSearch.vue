@@ -1,6 +1,8 @@
 <template>
   <div class="shopsearch">
-    <TheNavigation v-if="$store.state.nav.status" />
+    <transition name="slide-fade">
+      <TheNavigation v-if="$store.state.nav.status" />
+    </transition>
     <div class="shopsearchHeader">
       <h3>Search for Shops!</h3>
       <p>量り売りOK/保存容器OKの店舗を紹介します。</p>
@@ -18,6 +20,7 @@
         <h3>Search for Shops!</h3>
         <!-- search by area -->
         <!-- dropdown header -->
+
         <div class="selectBoxArea">
           <div class="selectBox" @click="toggleLocation">
             <div class="select">
@@ -25,15 +28,18 @@
               <font-awesome-icon icon="angle-down" class="icon" />
             </div>
           </div>
+
           <!-- checkbox section -->
-          <div class="checkboxArea" v-show="showLocation">
-            <div id="checkboxes" v-for="(location, index) in locations" :key="index.location">
-              <label for="select" id="one">
-                <input type="checkbox" :value="location" v-model="selectLocations[index].status" />
-                {{ location }}
-              </label>
+          <transition name="slide-down">
+            <div class="checkboxArea" v-show="showLocation">
+              <div id="checkboxes" v-for="(location,index) in locations" :key="index.location">
+                <label for="select" id="one">
+                  <input type="checkbox" v-model="selectLocations[index].status" />
+                  {{ location }}
+                </label>
+              </div>
             </div>
-          </div>
+          </transition>
         </div>
 
         <!-- search by item -->
@@ -46,23 +52,25 @@
             </div>
           </div>
           <!-- checkbox section-->
-          <div class="checkboxArea" v-show="showItem">
-            <div id="checkboxes" v-for="(value, index) in items" :key="index">
-              <label for="select" id="one">
-                <input type="checkbox" :value="value" v-model="selectItems[index].status" />
-                {{ value }}
-              </label>
+          <transition name="slide-down">
+            <div class="checkboxArea" v-show="showItem">
+              <div id="checkboxes" v-for="(value, index) in items" :key="index">
+                <label for="select" id="one">
+                  <input type="checkbox" v-model="selectItems[index].status" />
+                  {{ value }}
+                </label>
+              </div>
             </div>
-          </div>
+          </transition>
         </div>
 
         <div class="searchOptionBtn">
-          <div @click="clear">
+          <div class="searchOption" @click="clear(index)">
             <span class="letterspace">クリアする</span>
           </div>
-          <button>
+          <div class="searchOption">
             <span class="letterspace">検索する</span>
-          </button>
+          </div>
         </div>
       </div>
     </form>
@@ -139,12 +147,16 @@ export default {
     }
   },
   methods: {
-    clear() {
-      for (const index in this.$store.state.shop.shops) {
-        this.$set(this.selectItems, index, false);
-        this.$set(this.selectLocations, index, false);
+    clear(index) {
+      if ((this.selectItems[index] = true)) {
+        this.selectItems[index] = false;
+      }
+      if ((this.selectLocations[index] = true)) {
+        this.selectLocations[index] = false;
       }
     },
+    // this.selectItems = [];
+    // this.selectLocations = [];,
     toggleLocation() {
       this.showLocation = !this.showLocation;
     },
@@ -198,6 +210,38 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// * * * slide-fade * * * //
+.slide-fade-enter-active {
+  transition: all 0.6s cubic-bezier(0.65, 0.2, 0.4, 0.65);
+}
+
+.slide-fade-leave-active {
+  transition: all 0.6s cubic-bezier(0.65, 0.2, 0.4, 0.65);
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to {
+  transform: translateY(-300px);
+  opacity: 0;
+}
+// * * * slide-fade * * * //
+
+// * * * slide-down * * * //
+.slide-down-enter-active {
+  transition: all 0.4s cubic-bezier(0.3, 0.4, 0.4, 0.65);
+}
+
+.slide-down-leave-active {
+  transition: all 0.4s cubic-bezier(0.35, 0.4, 0.4, 0.65);
+}
+
+.slide-down-enter,
+.slide-down-leave-to {
+  transform: translateY(-30px);
+  opacity: 0;
+}
+// * * * slide-fade * * * //
+
 @mixin fontformat {
   font-size: 12px;
   letter-spacing: 0.08rem;
@@ -213,6 +257,9 @@ export default {
   padding: 0.5rem 0rem;
   text-align: center;
   margin: 0 auto;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .shopsearch {
@@ -300,7 +347,7 @@ button {
     .description {
       padding: 2rem;
       border: 1px solid #333333;
-      width: 70%;
+      width: 50%;
       margin: 0 auto;
     }
   }
@@ -357,13 +404,19 @@ button {
     bottom: 0;
     right: 0;
     width: 100%;
-    button {
-      background: #000;
-      color: #fff;
-      border: none;
-      padding: 0.5rem;
+    .searchOption {
+      font-size: 12px;
       width: 100%;
-      margin: 0rem 0.5rem;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0rem 1rem;
+      padding: 1rem;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }
@@ -371,6 +424,18 @@ button {
 @media screen and (max-width: 576px) {
   .searchFilterbtn {
     width: 80%;
+  }
+  .filterMenu {
+    width: 80%;
+    .searchOptionBtn {
+      .searchOption {
+        padding: 0.5rem;
+        margin: 0;
+        &:first-child {
+          margin-right: 0.5rem;
+        }
+      }
+    }
   }
   .shopList {
     width: 90%;
@@ -384,6 +449,13 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
+  }
+  .shopList {
+    .shopDetails {
+      .description {
+        width: 70%;
+      }
+    }
   }
 }
 </style>
