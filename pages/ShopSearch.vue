@@ -32,9 +32,16 @@
           <!-- checkbox section -->
           <transition name="slide-down">
             <div class="checkboxArea" v-show="showLocation">
-              <div id="checkboxes" v-for="(location,index) in locations" :key="index.location">
+              <div
+                id="checkboxes"
+                v-for="(location, index) in locations"
+                :key="index.location"
+              >
                 <label for="select" id="one">
-                  <input type="checkbox" v-model="selectLocations[index].status" />
+                  <input
+                    type="checkbox"
+                    v-model="selectLocations[index].status"
+                  />
                   {{ location }}
                 </label>
               </div>
@@ -65,8 +72,8 @@
         </div>
 
         <div class="searchOptionBtn">
-          <div class="searchOption" @click="clear(index)">
-            <span class="letterspace">クリアする</span>
+          <div class="searchOption">
+            <span class="letterspace" @click="clear">クリアする</span>
           </div>
           <div class="searchOption">
             <span class="letterspace">検索する</span>
@@ -147,16 +154,20 @@ export default {
     }
   },
   methods: {
-    clear(index) {
-      if ((this.selectItems[index] = true)) {
-        this.selectItems[index] = false;
-      }
-      if ((this.selectLocations[index] = true)) {
-        this.selectLocations[index] = false;
+    clear() {
+      for (const index in this.$store.state.shop.shops) {
+        const shop = this.$store.state.shop.shops[index];
+        this.$set(this.showDetails, index, false);
+        this.$set(this.selectLocations, index, {
+          name: shop.location,
+          status: false
+        });
+        this.$set(this.selectItems, index, {
+          name: shop.item,
+          status: false
+        });
       }
     },
-    // this.selectItems = [];
-    // this.selectLocations = [];,
     toggleLocation() {
       this.showLocation = !this.showLocation;
     },

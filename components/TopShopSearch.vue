@@ -21,7 +21,6 @@
 
 <style lang="scss" scoped>
 .topsearchsection {
-  margin-top: 2rem;
   border-top: 1px solid black;
 }
 
