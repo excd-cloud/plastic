@@ -27,19 +27,28 @@
         <!-- /end topText -->
       </div>
       <!-- /end flex -->
-      <p class="point">
-        ※日本は、一人当たりの使い捨てプラスチックごみの量が
-        最も多い国第２位です（国連環境計画調べ）。
-      </p>
+      <div class="marquee">
+        <p class="point">※日本は、一人当たりの使い捨てプラスチックごみの量が最も多い国第２位です（国連環境計画調べ）。</p>
+      </div>
     </div>
     <!-- /end firstviewtophalf -->
   </div>
 </template>
 
-<script></script>
+<script>
+</script>
 
 <style lang="scss" scoped>
 $lineheight: 25px;
+
+@keyframes scroll {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(100%, 0);
+  }
+}
 
 // * * * marquee animation * * * //
 .marquee-enter-active {
@@ -96,12 +105,19 @@ figure {
   margin: 0 auto;
   line-height: $lineheight;
 }
+
+.marquee {
+  border-top: 1px solid #000;
+}
 p.point {
   font-size: 10px;
   width: 100%;
   margin: 0 auto;
-  border-top: 1px solid #000;
   padding: 1rem 0rem;
+  animation-name: scroll;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 @media screen and (max-width: 576px) {

@@ -89,7 +89,6 @@ module.exports = {
    */
   extends: ["plugin:vue/vue3-recommended"],
   build: {
-    transpile: ["gsap"],
     /*
      ** Run ESLint on save
      */
