@@ -79,32 +79,132 @@ export const state = () => ({
       ]
     },
     {
-      name: "coffee",
+      name: "Coffee",
       id: "coffee",
       katakana: "コーヒー",
       file: "coffee.jpg",
-      description: "コーヒー豆を入れる容器"
+      description: "コーヒー豆を入れる容器",
+      details:
+        "コーヒー豆は新鮮のうちが味わいどき。新鮮さをできるだけ長く保つには、(1)空気(2)湿気(3)熱(4)紫外線に触れないよう扱うことが肝です。お店が入れてくれるクラフトバッグのまま持ち帰るのもOK。受け取り、お店が提供してくれるコーヒー豆を冷凍・冷蔵保存する場合は、お豆が空気や湿気にさらされないためにも、ぴたりと閉まる密閉容器に入れることが掟です。もしくは光が入らない涼しめの棚にしまい、室温で保存してもいいようです。新鮮な一杯を楽しむためには、一週間ほどで使い切れる分量だけ買うのが賢いでしょう。",
+      yes: "持ち帰り容器には巾着袋または布、家での保存にはブレッドケースを",
+      no: "プラスチック袋での保存。多湿の状態をつくり、カビが生えやすくなる",
+      links: [
+        {
+          name: "野田琺瑯の2重蓋保存容器",
+          url:
+            "https://www.favoritestyle.jp/products/detail.php?product_id=1523",
+          id: "bread"
+        }
+      ],
+      references: [
+        {
+          name: "オランダの「パンは布袋に」運動",
+          url: "https://note.com/trinity705/n/na9d0deaa06bf"
+        }
+      ],
+      locations: [
+        {
+          name: "OIL&VINEGAR レストラン瑞穂",
+          address: "東京都目黒区自由が丘2-8-8 LeCielBleu 2階",
+          url: "https://goo.gl/maps/Bzq36uLt8cLnyxGX9"
+        }
+      ]
     },
     {
-      name: "detergent",
+      name: "Detergent",
       id: "detergent",
       katakana: "洗剤",
       file: "detergent.jpg",
-      description: "洗剤を入れる容器"
+      description: "洗剤を入れる容器",
+      details:
+        "コーヒー豆は新鮮のうちが味わいどき。新鮮さをできるだけ長く保つには、(1)空気(2)湿気(3)熱(4)紫外線に触れないよう扱うことが肝です。お店が入れてくれるクラフトバッグのまま持ち帰るのもOK。受け取り、お店が提供してくれるコーヒー豆を冷凍・冷蔵保存する場合は、お豆が空気や湿気にさらされないためにも、ぴたりと閉まる密閉容器に入れることが掟です。もしくは光が入らない涼しめの棚にしまい、室温で保存してもいいようです。新鮮な一杯を楽しむためには、一週間ほどで使い切れる分量だけ買うのが賢いでしょう。",
+      yes: "持ち帰り容器には巾着袋または布、家での保存にはブレッドケースを",
+      no: "プラスチック袋での保存。多湿の状態をつくり、カビが生えやすくなる",
+      links: [
+        {
+          name: "野田琺瑯の2重蓋保存容器",
+          url:
+            "https://www.favoritestyle.jp/products/detail.php?product_id=1523",
+          id: "bread"
+        }
+      ],
+      references: [
+        {
+          name: "オランダの「パンは布袋に」運動",
+          url: "https://note.com/trinity705/n/na9d0deaa06bf"
+        }
+      ],
+      locations: [
+        {
+          name: "OIL&VINEGAR レストラン瑞穂",
+          address: "東京都目黒区自由が丘2-8-8 LeCielBleu 2階",
+          url: "https://goo.gl/maps/Bzq36uLt8cLnyxGX9"
+        }
+      ]
     },
     {
-      name: "meat",
+      name: "Meat",
       id: "meat",
       katakana: "肉",
       file: "meat.jpg",
-      description: "お肉を入れる容器"
+      description: "お肉を入れる容器",
+      details:
+        "コーヒー豆は新鮮のうちが味わいどき。新鮮さをできるだけ長く保つには、(1)空気(2)湿気(3)熱(4)紫外線に触れないよう扱うことが肝です。お店が入れてくれるクラフトバッグのまま持ち帰るのもOK。受け取り、お店が提供してくれるコーヒー豆を冷凍・冷蔵保存する場合は、お豆が空気や湿気にさらされないためにも、ぴたりと閉まる密閉容器に入れることが掟です。もしくは光が入らない涼しめの棚にしまい、室温で保存してもいいようです。新鮮な一杯を楽しむためには、一週間ほどで使い切れる分量だけ買うのが賢いでしょう。",
+      yes: "持ち帰り容器には巾着袋または布、家での保存にはブレッドケースを",
+      no: "プラスチック袋での保存。多湿の状態をつくり、カビが生えやすくなる",
+      links: [
+        {
+          name: "野田琺瑯の2重蓋保存容器",
+          url:
+            "https://www.favoritestyle.jp/products/detail.php?product_id=1523",
+          id: "bread"
+        }
+      ],
+      references: [
+        {
+          name: "オランダの「パンは布袋に」運動",
+          url: "https://note.com/trinity705/n/na9d0deaa06bf"
+        }
+      ],
+      locations: [
+        {
+          name: "OIL&VINEGAR レストラン瑞穂",
+          address: "東京都目黒区自由が丘2-8-8 LeCielBleu 2階",
+          url: "https://goo.gl/maps/Bzq36uLt8cLnyxGX9"
+        }
+      ]
     },
     {
-      name: "fish",
+      name: "Fish",
       id: "fish",
       katakana: "魚",
       file: "fish.jpg",
-      description: "お魚を入れる容器"
+      description: "お魚を入れる容器",
+      details:
+        "コーヒー豆は新鮮のうちが味わいどき。新鮮さをできるだけ長く保つには、(1)空気(2)湿気(3)熱(4)紫外線に触れないよう扱うことが肝です。お店が入れてくれるクラフトバッグのまま持ち帰るのもOK。受け取り、お店が提供してくれるコーヒー豆を冷凍・冷蔵保存する場合は、お豆が空気や湿気にさらされないためにも、ぴたりと閉まる密閉容器に入れることが掟です。もしくは光が入らない涼しめの棚にしまい、室温で保存してもいいようです。新鮮な一杯を楽しむためには、一週間ほどで使い切れる分量だけ買うのが賢いでしょう。",
+      yes: "持ち帰り容器には巾着袋または布、家での保存にはブレッドケースを",
+      no: "プラスチック袋での保存。多湿の状態をつくり、カビが生えやすくなる",
+      links: [
+        {
+          name: "野田琺瑯の2重蓋保存容器",
+          url:
+            "https://www.favoritestyle.jp/products/detail.php?product_id=1523",
+          id: "bread"
+        }
+      ],
+      references: [
+        {
+          name: "オランダの「パンは布袋に」運動",
+          url: "https://note.com/trinity705/n/na9d0deaa06bf"
+        }
+      ],
+      locations: [
+        {
+          name: "OIL&VINEGAR レストラン瑞穂",
+          address: "東京都目黒区自由が丘2-8-8 LeCielBleu 2階",
+          url: "https://goo.gl/maps/Bzq36uLt8cLnyxGX9"
+        }
+      ]
     }
   ]
 });

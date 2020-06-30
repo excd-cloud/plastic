@@ -244,14 +244,6 @@ export default {
     },
     shops() {
       return this.$store.state.shop.shops;
-    },
-    // selected() {
-    //   return this.$store.selected;
-    // },
-    filteredShops() {
-      return this.shops.filter(shop => {
-        return shop.location.match();
-      });
     }
   }
 };
