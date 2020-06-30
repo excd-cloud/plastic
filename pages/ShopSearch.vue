@@ -32,16 +32,9 @@
           <!-- checkbox section -->
           <transition name="slide-down">
             <div class="checkboxArea" v-show="showLocation">
-              <div
-                id="checkboxes"
-                v-for="(location, index) in locations"
-                :key="index.location"
-              >
+              <div id="checkboxes" v-for="(location, index) in locations" :key="index.location">
                 <label for="select" id="one">
-                  <input
-                    type="checkbox"
-                    v-model="selectLocations[index].status"
-                  />
+                  <input type="checkbox" v-model="selectLocations[index].status" />
                   {{ location }}
                 </label>
               </div>
@@ -76,7 +69,7 @@
             <span class="letterspace" @click="clear">クリアする</span>
           </div>
           <div class="searchOption">
-            <span class="letterspace">検索する</span>
+            <span class="letterspace" @click="search">検索する</span>
           </div>
         </div>
       </div>
@@ -154,6 +147,50 @@ export default {
     }
   },
   methods: {
+    search() {
+      let check1 = true;
+      let check2 = true;
+      for (const index in this.selectLocations) {
+        const location = this.selectLocations[index];
+        if (location.status) check1 = false;
+      }
+      for (const index in this.selectItems) {
+        const item = this.selectItems[index];
+        if (item.status) check2 = false;
+      }
+      let selectedShops1 = [];
+      let selectedShops2 = [];
+      if (check1) {
+        selectedShops1 = this.$store.state.shop.shops;
+      } else {
+        for (const index in this.$store.state.shop.shops) {
+          const shop = this.$store.state.shop.shops[index];
+          for (const index2 in this.selectLocations) {
+            const location = this.selectLocations[index2];
+            if (location.status && location.name == shop.location) {
+              selectedShops1.push(shop);
+            }
+          }
+        }
+      }
+      if (check2) {
+        selectedShops2 = selectedShops1;
+      } else {
+        for (const index in selectedShops1) {
+          const shop = selectedShops1[index];
+          for (const index2 in this.selectItems) {
+            const item = this.selectItems[index2];
+            if (item.status && item.name == shop.item) {
+              selectedShops2.push(shop);
+            }
+          }
+        }
+      }
+      console.log(selectedShops2); // これが最終的な検索結果
+      for (const a in this.$store.state.shop.shops) {
+        const shop = this.$store.state.shop.shops[a];
+      }
+    },
     clear() {
       for (const index in this.$store.state.shop.shops) {
         const shop = this.$store.state.shop.shops[index];
