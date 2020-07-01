@@ -17,7 +17,14 @@
         <nuxt-link to="/contact">Contact</nuxt-link>
       </li>
     </ul>
-    <p class="copyright">&copy; Sayonara Plastic 2020</p>
+    <p class="copyright">
+      &copy; Sayonara Plastic 2020
+      <br />
+      <span class="unsplash">
+        Photography Provided by
+        <a href="https://unsplash.com/">Unsplash</a>
+      </span>
+    </p>
   </footer>
 </template>
 
@@ -43,6 +50,15 @@ footer {
     padding-top: 1rem;
     text-align: center;
     font-size: 10px;
+    .unsplash {
+      letter-spacing: 0.08rem;
+      line-height: 30px;
+      font-size: 9px;
+      a {
+        font-size: 9px;
+        border-bottom: 1px solid #000;
+      }
+    }
   }
 }
 

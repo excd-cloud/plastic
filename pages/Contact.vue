@@ -8,30 +8,61 @@
         <h3>Contact Us</h3>
         <p class="small">
           Sayonara Plasticの
-          <nuxt-link to="/shopsearch">店舗リスト</nuxt-link>への掲載を希望される事業主さまは
+          <nuxt-link to="/shopsearch">店舗リスト</nuxt-link
+          >への掲載を希望される事業主さまは
           <br />以下のフォームからご連絡ください。
         </p>
       </div>
       <div class="content">
-        <form name="contact" action method="post" netlify>
+        <form
+          name="contact"
+          method="post"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          @submit.prevent="onSubmit"
+          :class="sendingClass"
+        >
           <input type="hidden" name="form-name" value="contact" />
           <div class="labelcell">
-            <label class="form-label" for="name">
+            <label for="name" class="form-label">
               <p>お名前:</p>
             </label>
-            <input class="form-field" name="name" id="name" />
+            <validation-provider rules="required|max:100" name="お名前">
+              <input
+                type="text"
+                class="form-field"
+                name="name"
+                id="name"
+                autocomplete="name"
+                v-model="name"
+              />
+            </validation-provider>
           </div>
           <div class="labelcell">
             <label class="form-label" for="email">
               <p>メールアドレス:</p>
             </label>
-            <input class="form-field" name="email" id="email" />
+            <input
+              type="text"
+              v-model="email"
+              class="form-field"
+              name="email"
+              id="email"
+            />
           </div>
           <div class="labelcell">
             <label class="form-label" for="message">
-              <p>本文:</p>
+              <p>お問い合わせ内容:</p>
             </label>
-            <textarea class="form-field" name="message" id="message"></textarea>
+            <textarea
+              v-model="message"
+              class="form-field"
+              name="message"
+              id="message"
+            ></textarea>
+          </div>
+          <div class="labelcell" v-show="false">
+            <label for="message">スパムでない場合は空欄</label>
           </div>
           <input class="form-button" type="submit" value="送信する" />
         </form>
@@ -42,6 +73,7 @@
 
 <script>
 import TheNavigation from "../components/TheNavigation";
+//https://notes.sharesl.net/articles/1711/#%e3%81%8a%e5%95%8f%e3%81%84%e5%90%88%e3%82%8f%e3%81%9b%e3%83%95%e3%82%a9%e3%83%bc%e3%83%a0%e3%82%92%e3%81%a4%e3%81%8f%e3%82%8b
 export default {
   components: {
     TheNavigation

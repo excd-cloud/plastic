@@ -32,7 +32,7 @@ module.exports = {
         });
     }
   },
-  plugins: ["~/plugins/contentful"],
+  plugins: ["~/plugins/contentful", "~/plugins/vee-validate"],
   /*
    ** Modules
    */
