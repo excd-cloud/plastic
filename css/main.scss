@@ -47,8 +47,13 @@ button:focus {
   outline: 0;
 }
 
-html {
+html,
+input {
   font-family: "Source Code Pro", monospace;
+}
+
+input {
+  letter-spacing: 0.08rem;
 }
 
 img {

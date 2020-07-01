@@ -5,10 +5,13 @@
     </transition>
     <div class="otherContainer">
       <h3>
-        The Beginner's Guide to Containers!
+        A Guide to Containers!
         <br />
-        <span class="small">保存容器の完全ガイド</span>
+        <span class="small">保存容器の初心者ガイド</span>
       </h3>
+      <p
+        class="otherContainerIntro"
+      >プラスチック包装とさようならするために携えておきたいのが、保存容器。買ったモノをできる限り新鮮に保つためにも、うっかりダメにしてしまわないためにも、肝心なのは容器選びです。買いたいモノに合わせて、適した容器を見つけましょう。</p>
       <div class="otherContainerInner">
         <figure v-for="image in images" :key="image.section">
           <img :src="require(`@/assets/img/${image.file}`)" :alt="image.name" />
@@ -58,13 +61,15 @@ export default {
 }
 
 .otherContainer {
-  padding: 4rem 0rem;
+  padding: 10rem 0rem 4rem;
   border-bottom: 1px solid #000;
   h3 {
     text-align: center;
+    padding-bottom: 3rem;
   }
   .otherContainerInner {
-    padding: 2rem;
+    width: 60%;
+    margin: 0 auto;
     figure {
       display: inline-block;
       width: 25%;
@@ -96,6 +101,30 @@ export default {
         }
         a {
           text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .otherContainer {
+    padding-top: 7rem;
+    h3 {
+      line-height: 30px;
+      padding-bottom: 1.5rem;
+    }
+    .otherContainerIntro {
+      width: 80%;
+      margin: 0 auto;
+      padding-bottom: 2rem;
+    }
+    .otherContainerInner {
+      width: 100%;
+      figure {
+        width: 50%;
+        .textbox p {
+          width: 100%;
         }
       }
     }

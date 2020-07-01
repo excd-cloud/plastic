@@ -3,7 +3,7 @@
     <div class="guideTagline">
       <p class="marginleft">でもどんな容器がいいの?と思ったら。</p>
       <h3>保存容器の買い物ガイド</h3>
-      <p class="center">Beginner's Guide to Containers!</p>
+      <p class="center">A Guide to Containers!</p>
     </div>
     <div class="containergrid">
       <figure v-for="image in images" :key="image.section">
@@ -97,6 +97,9 @@ export default {
   .topguide {
     padding-top: 3rem;
     padding-bottom: 0rem;
+    h3 {
+      width: 90%;
+    }
     .guideTagline {
       padding-bottom: 3rem;
       p.marginleft {

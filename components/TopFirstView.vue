@@ -114,10 +114,12 @@ p.point {
   width: 100%;
   margin: 0 auto;
   padding: 1rem 0rem;
-  animation-name: scroll;
-  animation-duration: 15s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  text-align: center;
+  font-weight: 600;
+  // animation-name: scroll;
+  // animation-duration: 15s;
+  // animation-iteration-count: infinite;
+  // animation-timing-function: linear;
 }
 
 @media screen and (max-width: 576px) {

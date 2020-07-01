@@ -88,7 +88,7 @@
       <h3>
         Find Other Containers!
         <br />
-        <span class="small">ほかの保存容器も見てみよう</span>
+        <span class="small">ほかの保存容器も見てみよう！</span>
       </h3>
       <div class="otherContainerInner">
         <figure v-for="image in images" :key="image.section">
@@ -110,7 +110,11 @@
 </template>
 
 <script>
+import TheNavigation from "../../../components/TheNavigation";
 export default {
+  components: {
+    TheNavigation
+  },
   data() {
     return {
       image: null
@@ -171,7 +175,8 @@ export default {
     text-align: center;
   }
   .otherContainerInner {
-    padding: 2rem;
+    width: 60%;
+    margin: 2rem auto;
     figure {
       display: inline-block;
       width: 25%;
@@ -209,14 +214,11 @@ export default {
   }
 }
 
-.guide-id {
-  padding-top: 3.6rem;
-}
-
 .guideInner {
   display: grid;
   grid-template-columns: 60% 40%;
   border-bottom: 1px solid #000;
+  padding-top: 3.6rem;
 }
 
 .guideTop {
@@ -310,6 +312,10 @@ h5 {
 @media screen and (max-width: 576px) {
   .guideInner {
     display: block;
+    padding-top: 0;
+  }
+  .description {
+    padding: 0rem 3rem 2rem;
   }
   .guideTop {
     border-right: none;
@@ -330,6 +336,20 @@ h5 {
   }
   .guideInnerBtm {
     display: block;
+  }
+  .otherContainer {
+    h3 {
+      line-height: 30px;
+    }
+    .otherContainerInner {
+      width: 100%;
+      figure {
+        width: 50%;
+        .textbox p {
+          width: 100%;
+        }
+      }
+    }
   }
 }
 </style>

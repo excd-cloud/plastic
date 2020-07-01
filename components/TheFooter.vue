@@ -21,6 +21,9 @@
   </footer>
 </template>
 
+<script>
+export default {};
+</script>
 <style lang="scss" scoped>
 footer {
   padding-bottom: 1rem;
@@ -53,6 +56,9 @@ footer {
     li {
       padding: 0.3rem 0rem;
       font-size: 13px;
+    }
+    .copyright {
+      border-top: 1px solid #000;
     }
   }
 }

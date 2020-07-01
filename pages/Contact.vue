@@ -5,26 +5,32 @@
     </transition>
     <div class="inner">
       <div class="contactHeader">
-        <h3>
-          Contact Us
-        </h3>
+        <h3>Contact Us</h3>
         <p class="small">
-          Sayonara Plasticの店舗リストへの掲載を希望される事業主さまは<br />こちらからご連絡ください。
+          Sayonara Plasticの
+          <nuxt-link to="/shopsearch">店舗リスト</nuxt-link>への掲載を希望される事業主さまは
+          <br />以下のフォームからご連絡ください。
         </p>
       </div>
       <div class="content">
         <form name="contact" action method="post" netlify>
           <input type="hidden" name="form-name" value="contact" />
           <div class="labelcell">
-            <label class="form-label" for="name"><p>お名前:</p></label>
+            <label class="form-label" for="name">
+              <p>お名前:</p>
+            </label>
             <input class="form-field" name="name" id="name" />
           </div>
           <div class="labelcell">
-            <label class="form-label" for="email"><p>メールアドレス:</p></label>
+            <label class="form-label" for="email">
+              <p>メールアドレス:</p>
+            </label>
             <input class="form-field" name="email" id="email" />
           </div>
           <div class="labelcell">
-            <label class="form-label" for="message"><p>本文:</p></label>
+            <label class="form-label" for="message">
+              <p>本文:</p>
+            </label>
             <textarea class="form-field" name="message" id="message"></textarea>
           </div>
           <input class="form-button" type="submit" value="送信する" />
@@ -77,8 +83,13 @@ export default {
 }
 h3 {
   text-align: center;
-  padding: 10rem 0rem 3rem;
+  padding: 8rem 0rem 3rem;
   line-height: 25px;
+}
+
+.small a {
+  font-size: 11px;
+  text-decoration: underline;
 }
 
 .labelcell {
@@ -90,6 +101,7 @@ h3 {
     padding: 10px;
     border: 1px solid #303030;
     margin-bottom: 5%;
+    letter-spacing: 0.08rem;
   }
 }
 

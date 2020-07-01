@@ -83,7 +83,7 @@
       <!-- shop table -->
       <div
         class="shopListingTable"
-        v-for="(shop, index) in shops"
+        v-for="(shop, index) in searchShops"
         :key="shop.table"
         @click="toggleDetails(index)"
       >
@@ -97,7 +97,11 @@
           <p class="detailsHeader">{{ shop.name }}</p>
           <p class="address">
             <font-awesome-icon icon="map-marker-alt" class="icon" />
-            {{ shop.address }}
+            <a :href="shop.maplink" target="_blank">{{ shop.address }}</a>
+          </p>
+          <p class="station">
+            <font-awesome-icon icon="train" class="icon" />
+            {{ shop.station }}
           </p>
           <p class="shoplink">
             <font-awesome-icon icon="hand-point-up" class="icon" />
@@ -129,7 +133,8 @@ export default {
       showItem: false,
       showLocation: false,
       selectLocations: [],
-      selectItems: []
+      selectItems: [],
+      searchShops: []
     };
   },
   created() {
@@ -187,9 +192,10 @@ export default {
         }
       }
       console.log(selectedShops2); // これが最終的な検索結果
-      for (const a in this.$store.state.shop.shops) {
-        const shop = this.$store.state.shop.shops[a];
-      }
+      this.searchShops = selectedShops2;
+      // for (const a in this.$store.state.shop.shops) {
+      //   const shop = this.$store.state.shop.shops[a];
+      // }
     },
     clear() {
       for (const index in this.$store.state.shop.shops) {
@@ -378,6 +384,11 @@ button {
       font-size: 20px;
       margin-bottom: 5px;
     }
+    .address {
+      a {
+        border-bottom: 1px solid #000;
+      }
+    }
     .shoplink {
       margin-bottom: 10px;
       a {
@@ -466,7 +477,10 @@ button {
     width: 80%;
   }
   .filterMenu {
-    width: 80%;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
     .searchOptionBtn {
       .searchOption {
         padding: 0.5rem;
@@ -477,20 +491,12 @@ button {
       }
     }
   }
-  .shopList {
-    width: 90%;
-    margin: 4rem auto;
-  }
   .selectBoxArea {
     width: 100%;
   }
-  .filterMenu {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
   .shopList {
+    width: 90%;
+    margin: 4rem auto;
     .shopDetails {
       .description {
         width: 70%;

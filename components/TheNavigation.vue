@@ -58,6 +58,7 @@ export default {
   z-index: 10;
   ul {
     padding: 8rem 2rem;
+    letter-spacing: 0.2rem;
     li {
       padding-bottom: 2rem;
     }
@@ -76,6 +77,12 @@ export default {
     .icon {
       margin-right: 1rem;
     }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .menu {
+    margin-top: -0.5rem;
   }
 }
 </style>

@@ -27,6 +27,7 @@
 .topsearchsection {
   display: grid;
   grid-template-columns: 50% 50%;
+  height: 81.5vh;
   h3 {
     text-align: center;
   }
