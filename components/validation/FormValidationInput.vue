@@ -1,13 +1,7 @@
 <template>
-  <validation-provider
-    v-slot="{ errors }"
-    :rules="rules"
-    :name="labelMessage"
-  >
+  <validation-provider v-slot="{ errors }" :rules="rules" :name="labelMessage">
     <div class="container">
-      <label :for="formComponentName">
-        {{ labelMessage }}:
-      </label>
+      <label :for="formComponentName"> {{ labelMessage }}: </label><br />
       <textarea
         :id="formComponentName"
         v-model="inputValueModel"
@@ -64,12 +58,24 @@ export default {
   computed: {
     inputValueModel: {
       get() {
-        return this.$props.inputValue
+        return this.$props.inputValue;
       },
       set(val) {
-        this.$emit('update:inputValue', val)
+        this.$emit("update:inputValue", val);
       }
     }
   }
-}
+};
 </script>
+
+<style lang="scss" scoped>
+textarea {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+}
+
+.container {
+  margin-bottom: 1rem;
+}
+</style>

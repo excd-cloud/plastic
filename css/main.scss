@@ -48,11 +48,14 @@ button:focus {
 }
 
 html,
-input {
+input,
+textarea {
   font-family: "Source Code Pro", monospace;
 }
 
-input {
+input,
+textarea,
+label {
   letter-spacing: 0.08rem;
 }
 

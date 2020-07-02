@@ -62,7 +62,7 @@
             </template>
           </FormValidationTextarea>
           <button type="submit" :disabled="invalid">
-            Submit
+            送信する
           </button>
         </validation-observer>
       </div>
@@ -136,7 +136,33 @@ h3 {
   line-height: 25px;
 }
 
-textarea #name {
+.small a {
+  font-size: 11px;
+  text-decoration: underline;
+}
+
+.contact-form {
   width: 40%;
+  margin: 0 auto;
+}
+
+button {
+  background-color: #fff;
+  letter-spacing: 0.08rem;
+  border: 1px solid #303030;
+  color: #000;
+  padding: 1rem;
+  font-family: "Source Code Pro", monospace;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  transition: 0.5s;
+  &:hover {
+    background-color: #000;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
 }
 </style>

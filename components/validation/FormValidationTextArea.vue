@@ -1,8 +1,8 @@
 <template>
   <validation-provider v-slot="{ errors }" :rules="rules" :name="labelMessage">
     <div class="container">
-      <label :for="formComponentName"> {{ labelMessage }}: </label>
-      <input
+      <label :for="formComponentName"> {{ labelMessage }}: </label><br />
+      <textarea
         :id="formComponentName"
         v-model="inputValueModel"
         :type="inputType"
@@ -62,3 +62,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+textarea {
+  width: 100%;
+  height: 300px;
+  padding: 0.5rem;
+}
+</style>
