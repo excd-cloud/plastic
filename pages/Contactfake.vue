@@ -27,16 +27,15 @@
             <label for="name" class="form-label">
               <p>お名前:</p>
             </label>
-            <validation-provider rules="required|max:100" name="お名前">
-              <input
-                type="text"
-                class="form-field"
-                name="name"
-                id="name"
-                autocomplete="name"
-                v-model="name"
-              />
-            </validation-provider>
+
+            <input
+              type="text"
+              class="form-field"
+              name="name"
+              id="name"
+              autocomplete="name"
+              v-model="name"
+            />
           </div>
           <div class="labelcell">
             <label class="form-label" for="email">

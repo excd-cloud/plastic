@@ -89,6 +89,7 @@ module.exports = {
    */
   extends: ["plugin:vue/vue3-recommended"],
   build: {
+    transpile: ["vee-validate/dist/rules"],
     /*
      ** Run ESLint on save
      */
