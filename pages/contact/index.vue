@@ -8,7 +8,7 @@
         <h3>Contact Us</h3>
         <p class="small">
           Sayonara Plasticの
-          <nuxt-link to="/shopsearch">店舗リスト</nuxt-link
+          <nuxt-link to="/shopsearch" target="_blank">店舗リスト</nuxt-link
           >への掲載を希望される事業主さまは
           <br />以下のフォームからご連絡ください。
         </p>
@@ -61,7 +61,7 @@
               </p>
             </template>
           </FormValidationTextarea>
-          <button type="submit" :disabled="invalid">
+          <button type="submit" :disabled="invalid || !validated">
             送信する
           </button>
         </validation-observer>
@@ -70,10 +70,9 @@
   </div>
 </template>
 <script>
+// https://qiita.com/arthur_foreign/items/a875b17328007935f5ec
 export default {
   components: {
-    //     ContactSubmitButton: () =>
-    //       import("@/components/contact/ContactSubmitButton"),
     FormValidationInput: () =>
       import("@/components/validation/FormValidationInput"),
     FormValidationTextarea: () =>
@@ -90,6 +89,12 @@ export default {
     async submit() {
       const isValid = await this.$refs.observer.validate();
       if (isValid) {
+        this.inputName = "";
+        this.inputEmail = "";
+        this.inputMessage = "";
+        requestAnimationFrame(() => {
+          this.$refs.observer.reset();
+        });
         // バリデーション通過時の処理(例：サーバーに値を送信する等)
         // サンクスページに遷移
         this.$router.push("/contact/thanks");

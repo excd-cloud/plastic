@@ -19,6 +19,7 @@
     </div>
   </validation-provider>
 </template>
+
 <script>
 export default {
   props: {
