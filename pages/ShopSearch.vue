@@ -34,15 +34,12 @@
             <div class="checkboxArea" v-show="showLocation">
               <div
                 id="checkboxes"
-                v-for="(location, index) in locations"
-                :key="index.location"
+                v-for="location in selectLocations"
+                :key="location.name"
               >
                 <label for="select" id="one">
-                  <input
-                    type="checkbox"
-                    v-model="selectLocations[index].status"
-                  />
-                  {{ location }}
+                  <input type="checkbox" v-model="location.status" />
+                  {{ location.name }}
                 </label>
               </div>
             </div>
@@ -61,10 +58,10 @@
           <!-- checkbox section-->
           <transition name="slide-down">
             <div class="checkboxArea" v-show="showItem">
-              <div id="checkboxes" v-for="(value, index) in items" :key="index">
+              <div id="checkboxes" v-for="item in selectItems" :key="item.name">
                 <label for="select" id="one">
-                  <input type="checkbox" v-model="selectItems[index].status" />
-                  {{ value }}
+                  <input type="checkbox" v-model="item.status" />
+                  {{ item.name }}
                 </label>
               </div>
             </div>
@@ -81,43 +78,48 @@
         </div>
       </div>
     </form>
-    <div class="shopList">
-      <!-- shoplist -->
-      <div class="shopListTop">
-        <p>店舗名</p>
-        <p>アイテム</p>
-      </div>
-      <!-- shop table -->
-      <div
-        class="shopListingTable"
-        v-for="(shop, index) in searchShops"
-        :key="shop.table"
-        @click="toggleDetails(index)"
-      >
-        <!-- shop table header -->
-        <div class="shopListHeader">
-          <p class="shopname">{{ shop.name }}</p>
-          <p>{{ shop.item }}</p>
+    <div v-if="searchShops.length == 0">
+      <p class="noMatch">一致するものはありませんでした。</p>
+    </div>
+    <div v-else>
+      <div class="shopList">
+        <!-- shoplist -->
+        <div class="shopListTop">
+          <p>店舗名</p>
+          <p>アイテム</p>
         </div>
-        <!-- shop table details -->
-        <div class="shopDetails" v-if="showDetails[index]">
-          <p class="detailsHeader">{{ shop.name }}</p>
-          <p class="address">
-            <font-awesome-icon icon="map-marker-alt" class="icon" />
-            <a :href="shop.maplink" target="_blank">{{ shop.address }}</a>
-          </p>
-          <p class="station">
-            <font-awesome-icon icon="train" class="icon" />
-            {{ shop.station }}
-          </p>
-          <p class="shoplink">
-            <font-awesome-icon icon="hand-point-up" class="icon" />
-            <a :href="shop.url" target="_blank">WEB</a>
-          </p>
-          <p class="description">
-            <font-awesome-icon icon="comment" class="icon" />
-            {{ shop.description }}
-          </p>
+        <!-- shop table -->
+        <div
+          class="shopListingTable"
+          v-for="(shop, index) in searchShops"
+          :key="shop.table"
+          @click="toggleDetails(index)"
+        >
+          <!-- shop table header -->
+          <div class="shopListHeader">
+            <p class="shopname">{{ shop.name }}</p>
+            <p>{{ shop.item }}</p>
+          </div>
+          <!-- shop table details -->
+          <div class="shopDetails" v-if="showDetails[index]">
+            <p class="detailsHeader">{{ shop.name }}</p>
+            <p class="address">
+              <font-awesome-icon icon="map-marker-alt" class="icon" />
+              <a :href="shop.maplink" target="_blank">{{ shop.address }}</a>
+            </p>
+            <p class="station">
+              <font-awesome-icon icon="train" class="icon" />
+              {{ shop.station }}
+            </p>
+            <p class="shoplink">
+              <font-awesome-icon icon="hand-point-up" class="icon" />
+              <a :href="shop.url" target="_blank">WEB</a>
+            </p>
+            <p class="description">
+              <font-awesome-icon icon="comment" class="icon" />
+              {{ shop.description }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -147,24 +149,28 @@ export default {
   created() {
     this.searchShops = this.$store.state.shop.shops;
 
-    let checkList = []
+    let checkList = [];
 
     for (const index in this.$store.state.shop.shops) {
       const shop = this.$store.state.shop.shops[index];
 
       // if(checkList.indexOf(shop.location) < 0) {
-        
+
       // }
 
+      if (checkList.indexOf(shop.location) < 0) {
+        // もし配列の中に値があったら、そのindexを教えてくれる。なければ-1を返す
+        this.$set(this.selectLocations, index, {
+          name: shop.location,
+          status: false
+        });
+        this.$set(this.selectItems, index, {
+          name: shop.item,
+          status: false
+        });
+        checkList.push(shop.location);
+      }
       this.$set(this.showDetails, index, false);
-      this.$set(this.selectLocations, index, {
-        name: shop.location,
-        status: false
-      });
-      this.$set(this.selectItems, index, {
-        name: shop.item,
-        status: false
-      });
     }
   },
   methods: {
@@ -335,6 +341,11 @@ export default {
   h2 {
     padding-bottom: 1rem;
   }
+}
+
+.noMatch {
+  text-align: center;
+  margin-top: 2rem;
 }
 
 .selectBox,
