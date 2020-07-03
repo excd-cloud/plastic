@@ -32,9 +32,16 @@
           <!-- checkbox section -->
           <transition name="slide-down">
             <div class="checkboxArea" v-show="showLocation">
-              <div id="checkboxes" v-for="(location, index) in locations" :key="index.location">
+              <div
+                id="checkboxes"
+                v-for="(location, index) in locations"
+                :key="index.location"
+              >
                 <label for="select" id="one">
-                  <input type="checkbox" v-model="selectLocations[index].status" />
+                  <input
+                    type="checkbox"
+                    v-model="selectLocations[index].status"
+                  />
                   {{ location }}
                 </label>
               </div>
@@ -65,11 +72,11 @@
         </div>
 
         <div class="searchOptionBtn">
-          <div class="searchOption">
-            <span class="letterspace" @click="clear">クリアする</span>
+          <div class="searchOption" @click="clear">
+            <span class="letterspace">クリアする</span>
           </div>
-          <div class="searchOption">
-            <span class="letterspace" @click="search">検索する</span>
+          <div class="searchOption" @click="search">
+            <span class="letterspace">検索する</span>
           </div>
         </div>
       </div>
@@ -138,8 +145,17 @@ export default {
     };
   },
   created() {
+    this.searchShops = this.$store.state.shop.shops;
+
+    let checkList = []
+
     for (const index in this.$store.state.shop.shops) {
       const shop = this.$store.state.shop.shops[index];
+
+      // if(checkList.indexOf(shop.location) < 0) {
+        
+      // }
+
       this.$set(this.showDetails, index, false);
       this.$set(this.selectLocations, index, {
         name: shop.location,
@@ -193,6 +209,7 @@ export default {
       }
       console.log(selectedShops2); // これが最終的な検索結果
       this.searchShops = selectedShops2;
+      this.seeFilter = false;
       // for (const a in this.$store.state.shop.shops) {
       //   const shop = this.$store.state.shop.shops[a];
       // }
