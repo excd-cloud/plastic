@@ -154,10 +154,6 @@ export default {
     for (const index in this.$store.state.shop.shops) {
       const shop = this.$store.state.shop.shops[index];
 
-      // if(checkList.indexOf(shop.location) < 0) {
-
-      // }
-
       if (checkList.indexOf(shop.location) < 0) {
         // もし配列の中に値があったら、そのindexを教えてくれる。なければ-1を返す
         this.$set(this.selectLocations, index, {
@@ -221,18 +217,39 @@ export default {
       // }
     },
     clear() {
+      this.searchShops = this.$store.state.shop.shops;
+
+      let checkList = [];
+
       for (const index in this.$store.state.shop.shops) {
         const shop = this.$store.state.shop.shops[index];
+
+        if (checkList.indexOf(shop.location) < 0) {
+          // もし配列の中に値があったら、そのindexを教えてくれる。なければ-1を返す
+          this.$set(this.selectLocations, index, {
+            name: shop.location,
+            status: false
+          });
+          this.$set(this.selectItems, index, {
+            name: shop.item,
+            status: false
+          });
+          checkList.push(shop.location);
+        }
         this.$set(this.showDetails, index, false);
-        this.$set(this.selectLocations, index, {
-          name: shop.location,
-          status: false
-        });
-        this.$set(this.selectItems, index, {
-          name: shop.item,
-          status: false
-        });
       }
+      // for (const index in this.$store.state.shop.shops) {
+      //   const shop = this.$store.state.shop.shops[index];
+      //   this.$set(this.showDetails, index, false);
+      //   this.$set(this.selectLocations, index, {
+      //     name: shop.location,
+      //     status: false
+      //   });
+      //   this.$set(this.selectItems, index, {
+      //     name: shop.item,
+      //     status: false
+      //   });
+      // }
     },
     toggleLocation() {
       this.showLocation = !this.showLocation;
