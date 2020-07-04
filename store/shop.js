@@ -67,7 +67,7 @@ export const state = () => ({
       item: "洗剤・石鹸",
       address: "東京都千代田区神田駿河台3-3-13",
       description: "すすぎがいらない洗剤「海へ…」を量り売りで買える。",
-      prefecture: "神奈川県",
+      prefecture: "東京",
       location: "御茶ノ水・上野",
       station: "御茶ノ水駅",
       url: "http://www.gaia-ochanomizu.co.jp/shop/pages/shop_info.aspx",

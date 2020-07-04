@@ -70,9 +70,11 @@
   </div>
 </template>
 <script>
+import TheNavigation from "../../components/TheNavigation";
 // https://qiita.com/arthur_foreign/items/a875b17328007935f5ec
 export default {
   components: {
+    TheNavigation,
     FormValidationInput: () =>
       import("@/components/validation/FormValidationInput"),
     FormValidationTextarea: () =>

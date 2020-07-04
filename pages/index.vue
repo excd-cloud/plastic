@@ -6,7 +6,7 @@
     <TopFirstView />
     <TopShopSearch />
     <TopGuide />
-    <TopVoices />
+    <TopAbout />
   </section>
   <!-- v-on:toggle-nav="toggleNav" -->
 </template>
@@ -14,8 +14,8 @@
 <script>
 import TopFirstView from "../components/TopFirstView";
 import TopShopSearch from "../components/TopShopSearch";
+import TopAbout from "../components/TopAbout";
 import TopGuide from "../components/TopGuide";
-import TopVoices from "../components/TopVoices";
 import TheNavigation from "../components/TheNavigation";
 
 export default {
@@ -23,7 +23,7 @@ export default {
     TopFirstView,
     TopShopSearch,
     TopGuide,
-    TopVoices,
+    TopAbout,
     TheNavigation
   }
 };

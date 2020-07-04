@@ -135,18 +135,20 @@ export default {
   },
   data() {
     return {
-      showDetails: [],
       currentDetail: null,
       seeFilter: false,
-      categories: [],
       showItem: false,
       showLocation: false,
+      showDetails: [],
+      categories: [],
       selectLocations: [],
       selectItems: [],
       searchShops: []
     };
   },
   created() {
+    console.log(this.selectLocations);
+    console.log(this.selectItems);
     this.searchShops = this.$store.state.shop.shops;
 
     let checkList = [];
@@ -217,6 +219,7 @@ export default {
       // }
     },
     clear() {
+      /*
       this.searchShops = this.$store.state.shop.shops;
 
       let checkList = [];
@@ -238,18 +241,21 @@ export default {
         }
         this.$set(this.showDetails, index, false);
       }
-      // for (const index in this.$store.state.shop.shops) {
-      //   const shop = this.$store.state.shop.shops[index];
-      //   this.$set(this.showDetails, index, false);
-      //   this.$set(this.selectLocations, index, {
-      //     name: shop.location,
-      //     status: false
-      //   });
-      //   this.$set(this.selectItems, index, {
-      //     name: shop.item,
-      //     status: false
-      //   });
-      // }
+      */
+      /*
+      for (const index in this.$store.state.shop.shops) {
+        const shop = this.$store.state.shop.shops[index];
+        this.$set(this.showDetails, index, false);
+        this.$set(this.selectLocations, index, {
+          name: shop.location,
+          status: false
+        });
+        this.$set(this.selectItems, index, {
+          name: shop.item,
+          status: false
+        });
+      }
+      */
     },
     toggleLocation() {
       this.showLocation = !this.showLocation;
