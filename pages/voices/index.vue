@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import TheNavigation from "../../components/TheNavigation";
+/* import TheNavigation from "../../components/TheNavigation";
 import SharePost from "../../components/VoicesSharePost";
 import { createClient } from "~/plugins/contentful.js";
 
@@ -69,7 +69,7 @@ export default {
       this.togglePost = false;
     }
   }
-};
+};*/
 </script>
 
 <style lang="scss" scoped>

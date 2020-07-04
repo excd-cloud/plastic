@@ -42,6 +42,9 @@ module.exports = {
     "nuxt-vue-multiselect",
     "@nuxtjs/dotenv"
   ],
+  scripts: {
+    generate: "nuxt generate"
+  },
   fontawesome: {
     imports: [
       {
