@@ -3,7 +3,9 @@
     <transition name="slide-updown">
       <TheNavigation v-if="$store.state.nav.status" />
     </transition>
-    <h3>About Sayonara Plastic</h3>
+    <div class="aboutInner">
+      <h3>About Sayonara Plastic</h3>
+    </div>
   </div>
 </template>
 
@@ -48,26 +50,13 @@ export default {
 }
 
 .about {
-  padding-top: 46.5px;
-  .postbutton {
-    position: relative;
-    margin-top: 10%;
-    left: -11.5%;
-    background-color: #000;
-    width: 25%;
-    padding: 10px;
-    transform: rotate(90deg);
-    z-index: 5;
-    p {
-      color: #fff;
-      display: flex;
-      justify-content: center;
-    }
+  .aboutInner {
+    padding-top: 10rem;
   }
   h3 {
     text-align: center;
     padding-bottom: 3rem;
-    margin-top: -100px;
+    margin-top: 2rem;
   }
   .articleSection {
     width: 90%;
