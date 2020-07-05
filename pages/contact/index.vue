@@ -76,9 +76,9 @@ export default {
   components: {
     TheNavigation,
     FormValidationInput: () =>
-      import("@/components/validation/FormValidationInput"),
+      import("../../components/validation/FormValidationInput"),
     FormValidationTextarea: () =>
-      import("@/components/validation/FormValidationTextarea")
+      import("../../components/validation/FormValidationTextArea")
   },
   data() {
     return {
