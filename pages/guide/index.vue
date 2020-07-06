@@ -9,9 +9,9 @@
         <br />
         <span class="small">保存容器の初心者ガイド</span>
       </h3>
-      <p
-        class="otherContainerIntro"
-      >プラスチック包装とさようならするために携えておきたいのが、保存容器。買ったモノをできる限り新鮮に保つためにも、うっかりダメにしてしまわないためにも、肝心なのは容器選びです。買いたいモノに合わせて、適した容器を見つけましょう。</p>
+      <p class="otherContainerIntro">
+        プラスチック包装を免れるためには、保存容器を入手しましょう。買ったモノをできる限り新鮮に保つためにも、うっかりダメにしてしまわないためにも、容器選びが肝心です。買いたいモノに合わせて、適した容器を見つけましょう。
+      </p>
       <div class="otherContainerInner">
         <figure v-for="image in images" :key="image.section">
           <img :src="require(`@/assets/img/${image.file}`)" :alt="image.name" />
@@ -65,7 +65,12 @@ export default {
   border-bottom: 1px solid #000;
   h3 {
     text-align: center;
-    padding-bottom: 3rem;
+    padding-bottom: 2rem;
+  }
+  .otherContainerIntro {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
   }
   .otherContainerInner {
     width: 60%;
