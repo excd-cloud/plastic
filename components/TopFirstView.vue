@@ -4,7 +4,7 @@
       <h1>Sayonara Plastic</h1>
       <div class="flex">
         <figure>
-          <img src="@/assets/img/frontpageimg.jpg" alt />
+          <img src="@/assets/img/frontpageimg.jpg" alt="" />
         </figure>
         <div class="topText">
           <div class="topTagline">
@@ -28,15 +28,16 @@
       </div>
       <!-- /end flex -->
       <div class="marquee">
-        <p class="point">※日本は、一人当たりの使い捨てプラスチックごみの量が最も多い国第２位です（国連環境計画調べ）。</p>
+        <p class="point">
+          ※日本は、一人当たりの使い捨てプラスチックごみの量が最も多い国第２位です（国連環境計画調べ）。
+        </p>
       </div>
     </div>
     <!-- /end firstviewtophalf -->
   </div>
 </template>
 
-<script>
-</script>
+<script></script>
 
 <style lang="scss" scoped>
 $lineheight: 25px;

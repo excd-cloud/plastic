@@ -15,6 +15,7 @@
       </div>
       <div class="contact-form">
         <validation-observer
+          data-netlify="true"
           ref="observer"
           v-slot="{ invalid }"
           tag="form"
@@ -61,7 +62,7 @@
               </p>
             </template>
           </FormValidationTextarea>
-          <button type="submit" :disabled="invalid || !validated">
+          <button type="submit" :disabled="invalid">
             送信する
           </button>
         </validation-observer>

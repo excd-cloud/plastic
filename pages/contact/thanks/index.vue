@@ -13,6 +13,15 @@
   </div>
 </template>
 
+<script>
+import TheNavigation from "../../../components/TheNavigation";
+export default {
+  components: {
+    TheNavigation
+  }
+};
+</script>
+
 <style lang="scss" scoped>
 // * - - slidefade for nav - - * //
 .slide-fade-enter-active {

@@ -16,6 +16,11 @@
     </div>
 
     <form class="filterMenu" v-show="seeFilter">
+      <font-awesome-icon
+        icon="times"
+        class="closeFilter"
+        @click="closeFilter"
+      />
       <div class="filterMenuInner">
         <h3>Search for Shops!</h3>
         <!-- search by area -->
@@ -111,6 +116,10 @@
               <font-awesome-icon icon="train" class="icon" />
               {{ shop.station }}
             </p>
+            <p class="time">
+              <font-awesome-icon icon="clock" class="icon" />
+              {{ shop.hours }}
+            </p>
             <p class="shoplink">
               <font-awesome-icon icon="hand-point-up" class="icon" />
               <a :href="shop.url" target="_blank">WEB</a>
@@ -152,21 +161,23 @@ export default {
     this.searchShops = this.$store.state.shop.shops;
 
     let checkList = [];
+    let count = 0;
 
     for (const index in this.$store.state.shop.shops) {
       const shop = this.$store.state.shop.shops[index];
 
       if (checkList.indexOf(shop.location) < 0) {
         // もし配列の中に値があったら、そのindexを教えてくれる。なければ-1を返す
-        this.$set(this.selectLocations, index, {
+        this.$set(this.selectLocations, count, {
           name: shop.location,
           status: false
         });
-        this.$set(this.selectItems, index, {
+        this.$set(this.selectItems, count, {
           name: shop.item,
           status: false
         });
         checkList.push(shop.location);
+        count++;
       }
       this.$set(this.showDetails, index, false);
     }
@@ -219,30 +230,30 @@ export default {
       // }
     },
     clear() {
-      /*
       this.searchShops = this.$store.state.shop.shops;
-
       let checkList = [];
+      let count = 0;
 
       for (const index in this.$store.state.shop.shops) {
         const shop = this.$store.state.shop.shops[index];
 
         if (checkList.indexOf(shop.location) < 0) {
           // もし配列の中に値があったら、そのindexを教えてくれる。なければ-1を返す
-          this.$set(this.selectLocations, index, {
+          this.$set(this.selectLocations, count, {
             name: shop.location,
             status: false
           });
-          this.$set(this.selectItems, index, {
+          this.$set(this.selectItems, count, {
             name: shop.item,
             status: false
           });
           checkList.push(shop.location);
+          count++;
         }
         this.$set(this.showDetails, index, false);
       }
-      */
       /*
+
       for (const index in this.$store.state.shop.shops) {
         const shop = this.$store.state.shop.shops[index];
         this.$set(this.showDetails, index, false);
@@ -254,8 +265,7 @@ export default {
           name: shop.item,
           status: false
         });
-      }
-      */
+      }*/
     },
     toggleLocation() {
       this.showLocation = !this.showLocation;
@@ -273,8 +283,8 @@ export default {
     filterSearch() {
       this.seeFilter = true;
     },
-    close() {
-      this.showOption = false;
+    closeFilter() {
+      this.seeFilter = false;
     }
   },
   computed: {
@@ -457,7 +467,7 @@ button {
 
 .filterMenu {
   position: absolute;
-  padding: 5rem 0rem 0rem;
+  padding: 2rem 0rem 0rem;
   top: 5%;
   left: 20%;
   width: 60%;
@@ -465,9 +475,16 @@ button {
   z-index: 20;
   background-color: rgba(255, 255, 255, 0.97);
   border: black 1px solid;
+  .closeFilter {
+    position: relative;
+    left: 95%;
+    &:hover {
+      cursor: pointer;
+    }
+  }
   h3 {
     text-align: center;
-    padding-bottom: 5rem;
+    padding: 3rem 0rem 5rem;
     width: 100%;
   }
   .filterMenuInner {
@@ -499,6 +516,8 @@ button {
     border: 0.5px solid #000;
     border-top: none;
     padding: 1rem 0rem;
+    height: 150px;
+    overflow-y: scroll;
   }
   .searchOptionBtn {
     display: flex;
