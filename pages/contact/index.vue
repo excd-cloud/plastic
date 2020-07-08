@@ -8,8 +8,7 @@
         <h3>Contact Us</h3>
         <p class="small">
           Sayonara Plasticの
-          <nuxt-link to="/shopsearch" target="_blank">店舗リスト</nuxt-link
-          >への掲載を希望される事業主さまは
+          <nuxt-link to="/shopsearch" target="_blank">店舗リスト</nuxt-link>への掲載を希望される事業主さまは
           <br />以下のフォームからご連絡ください。
         </p>
       </div>
@@ -26,14 +25,12 @@
             labelMessage="Name"
             inputType="text"
             formComponentName="name"
-            maxLength="50"
+            maxlength="50"
             placeHolderMessage="名前を入力してください"
             :inputValue.sync="inputName"
           >
             <template v-slot="inputProps">
-              <p>
-                {{ inputProps.inputValue.length + "/" + inputProps.maxLength }}
-              </p>
+              <p>{{ inputProps.inputValue.length + "/" + inputProps.maxLength }}</p>
             </template>
           </FormValidationInput>
           <!-- メールアドレスには入力文字数を表示しない -->
@@ -42,7 +39,7 @@
             labelMessage="E-Mail"
             inputType="email"
             formComponentName="email"
-            maxLength="256"
+            maxlength="256"
             placeHolderMessage="メールアドレスを入力してください"
             :inputValue.sync="inputEmail"
           />
@@ -52,19 +49,15 @@
             textareaCols="20"
             textareaRows="10"
             formComponentName="message"
-            maxLength="1000"
+            maxlength="1000"
             placeHolderMessage="お問い合わせ内容を入力してください"
             :inputValue.sync="inputMessage"
           >
             <template v-slot="inputProps">
-              <p>
-                {{ inputProps.inputValue.length + "/" + inputProps.maxLength }}
-              </p>
+              <p>{{ inputProps.inputValue.length + "/" + inputProps.maxLength }}</p>
             </template>
           </FormValidationTextarea>
-          <button type="submit" :disabled="invalid">
-            送信する
-          </button>
+          <button type="submit" :disabled="invalid">送信する</button>
         </validation-observer>
       </div>
     </div>
@@ -73,6 +66,8 @@
 <script>
 import TheNavigation from "../../components/TheNavigation";
 // https://qiita.com/arthur_foreign/items/a875b17328007935f5ec
+//
+
 export default {
   components: {
     TheNavigation,
