@@ -84,7 +84,10 @@
       </div>
     </form>
     <div v-if="searchShops.length == 0">
-      <p class="noMatch">一致するものはありませんでした。</p>
+      <p class="noMatch">
+        申し訳ございません。お探しいただいた内容の店舗情報は現在開拓中です。随時リストを更新しているので、よろしければまた訪問ください。また、エリアのみで検索いただくとヒット数が増える可能性があります。<br />
+        Keep Saving Plastic!
+      </p>
     </div>
     <div v-else>
       <div class="shopList">
@@ -379,6 +382,9 @@ export default {
 .noMatch {
   text-align: center;
   margin-top: 2rem;
+  width: 40%;
+  margin: 0 auto;
+  padding-top: 4rem;
 }
 
 .selectBox,

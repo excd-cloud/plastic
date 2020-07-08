@@ -8,10 +8,10 @@ export const state = () => ({
         "ひよこ豆などの豆類からナッツ、チョコレート、ドライフルーツ、パスタ、オリーブオイルと数多くの食材を取り揃えている量り売り専門店。",
       prefecture: "東京",
       location: "渋谷・代々木・下北沢",
-      station: "代々木公園駅",
-      hours: "10am-7pm",
+      station: "東京メトロ千代田線代々木公園駅から徒歩7分",
+      hours: "日曜日 12pm-6pm",
       url: "https://www.nuebytotoya.com/",
-      maplink: "https://goo.gl/maps/R2iFSvaojWjPPDZ36"
+      maplink: "https://goo.gl/maps/GuaC8ofEktbPXJUW8"
     },
     {
       name: "Oil And Vinegar",
@@ -22,9 +22,22 @@ export const state = () => ({
       location: "自由が丘・二子玉川",
       station: "東横線自由が丘駅から徒歩4分",
       category: "量り売りOK",
-      hours: "10am-7pm",
+      hours: "水-土: 12pm-2pm, 水-月: 5pm-10pm",
       url: "https://oilvinegar.jp/",
       maplink: "https://goo.gl/maps/mZARoWaZ3QHT3Skj7"
+    },
+    {
+      name: "兎と寅",
+      item: "食品全般",
+      address: "東京都港区西麻布 2-25-11 1F 有限会社コンタクト・イースト内",
+      description:
+        "パスタやドライフルーツ、ナッツなど、イタリア・フランスを中心としたオーガニックの輸入食材が量り売りできる。",
+      prefecture: "東京",
+      location: "六本木・麻布・広尾",
+      station: "東京メトロ日比谷線「広尾駅」から徒歩8分",
+      hours: "不定休",
+      url: "https://usatora.tokyo/",
+      maplink: "https://goo.gl/maps/Zu886T8HPXTB1M4h6"
     },
     {
       name: "職人醤油松屋銀座店",
@@ -36,7 +49,7 @@ export const state = () => ({
       location: "銀座",
       station:
         "東京メトロ銀座線、丸ノ内線、日比谷線「銀座駅」直結。JR「有楽町駅」徒歩8分",
-      hours: "10am-7pm",
+      hours: "10am-8pm",
       category: "量り売りOK",
       url: "https://www.s-shoyu.com/matsuya",
       maplink: "https://goo.gl/maps/ajFqazMJcUFM7AgQ9"
@@ -49,7 +62,7 @@ export const state = () => ({
       prefecture: "東京都",
       location: "恵比寿・代官山・中目黒",
       station: "JR山手線「恵比寿駅」直結",
-      hours: "10am-7pm",
+      hours: "10am-9pm",
       category: "量り売りOK",
       url: "https://www.atre.co.jp/store/ebisu/shop/detail/1581",
       maplink: "https://goo.gl/maps/2suGRaRFLBqxL5vu9"
@@ -62,10 +75,23 @@ export const state = () => ({
         "食べ物から日用品まで墓売りで購入できるお店。はちみつやナッツ、シャンプーや洗剤が買える。",
       prefecture: "神奈川県",
       location: "多摩川・武蔵小杉",
-      hours: "10am-7pm",
-      station: "元住吉",
+      hours: "月・火・水・金・土・日：10am-5:30pm",
+      station: "東急東横線「元住吉駅」西口から徒歩8分ほど",
       url: "https://www.bulkfoods-market.com/",
       maplink: "https://goo.gl/maps/YzpGuD2zvYpUeZQS6"
+    },
+    {
+      name: "バルクフーズ　元住吉駅前店",
+      item: "食品全般",
+      address: "神奈川県川崎市中原区木月1-35-36",
+      description:
+        "食べ物から日用品まで墓売りで購入できるお店。はちみつやナッツ、シャンプーや洗剤が買える。",
+      prefecture: "神奈川県",
+      location: "多摩川・武蔵小杉",
+      hours: "月・火・水・金・土・日：11am-7pm",
+      station: "東急東横線「元住吉駅」西口から徒歩1分ほど",
+      url: "https://www.bulkfoods-market.com/",
+      maplink: "https://goo.gl/maps/pMjgCJxc7naDtXBG8"
     },
     {
       name: "バルクフーズ　新丸子店",
@@ -75,10 +101,10 @@ export const state = () => ({
         "食べ物から日用品まで墓売りで購入できるお店。はちみつやナッツ、シャンプーや洗剤が買える。",
       prefecture: "神奈川県",
       location: "多摩川・武蔵小杉",
-      hours: "10am-7pm",
-      station: "新丸子",
+      hours: "11am-8pm",
+      station: "東急東横線「新丸子駅」西口から徒歩1分",
       url: "https://www.bulkfoods-market.com/",
-      maplink: "https://goo.gl/maps/fBK2bhQ8SZHAZtpP7"
+      maplink: "https://goo.gl/maps/xkMcLiSrjMi1RD6X7"
     },
     {
       name: "GAIA お茶の水店",
@@ -87,7 +113,7 @@ export const state = () => ({
       description: "すすぎがいらない洗剤「海へ…」を量り売りで買える。",
       prefecture: "東京",
       location: "御茶ノ水・上野",
-      hours: "10am-7pm",
+      hours: "11:30am-7:30pm",
       station: "御茶ノ水駅",
       url: "http://www.gaia-ochanomizu.co.jp/shop/pages/shop_info.aspx",
       maplink: "https://goo.gl/maps/uBRTm6RiA6P6315R8"
@@ -99,7 +125,7 @@ export const state = () => ({
       description: "さまざまなフレーバーナッツが量り売りできるお店。",
       prefecture: "東京",
       location: "恵比寿・代官山・中目黒",
-      hours: "10am-7pm",
+      hours: "11am-8pm",
       station: "中目黒駅",
       url: "https://groovynuts.jp/",
       maplink: "https://goo.gl/maps/R2iFSvaojWjPPDZ36"
@@ -107,15 +133,15 @@ export const state = () => ({
     {
       name: "タップアンドグロウラー",
       item: "クラフトビール",
-      address: "	東京都世田谷区北沢2-33-6 飯嶋ビル 1階",
+      address: "東京都世田谷区北沢2-33-6 飯嶋ビル 1階",
       description:
         "常時18種類のビールを用意しているクラフトビールショップ。店頭で購入できるリユースボトルにクラフトビールを注いでもらおう。二度目以降は、リユースボトルの購入は不要。",
       prefecture: "東京",
       location: "渋谷・代々木・下北沢",
-      hours: "10am-7pm",
+      hours: "3pm-12am",
       station: "下北沢駅",
       url: "https://www.craftbeers.tokyo/",
-      maplink: "https://goo.gl/maps/R2iFSvaojWjPPDZ36"
+      maplink: "https://goo.gl/maps/SZo9cGnFLpuyRG6V9"
     }
   ],
   areas: [
